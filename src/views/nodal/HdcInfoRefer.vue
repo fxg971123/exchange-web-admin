@@ -1,0 +1,104 @@
+
+<template>
+  <div>
+    <Card>
+      <p slot="title">
+        创世节点信息查询
+        <Button type="primary" size="small" @click="refreshData(1)">
+          <Icon type="refresh"></Icon>刷新
+        </Button>
+      </p>
+      <Row class="functionWrapper">
+        <div class="searchWrapper">
+          <div class="poptip">
+            <Input placeholder="用户手机号" v-model.trim="param.phone" />
+          </div>
+          
+          <div class="poptip">
+						<span>创世等级：</span>
+						<Select v-model="param.memberStar">
+							<Option v-for="item in 7" :value="item" :key="item">{{ item }}</Option>
+						</Select>
+					</div>
+
+          <div class="btns">
+            <Button type="info" @click="getData(1)">搜索</Button>
+          </div>
+        </div>
+      </Row>
+      <Row class="tableWrapper">
+        <Table
+          border
+          :columns="columns"
+          :data="rewardsList"
+          :loading="ifLoading"
+        >
+        </Table>
+      </Row>
+      <Row class="pageWrapper">
+        <Page
+          :total="totalNum"
+          :current="currentPageIdx"
+          :page-size="param.pageSize"
+          @on-change="changePage"
+          show-elevator
+        ></Page>
+      </Row>
+    </Card>
+  </div>
+</template>
+
+<script>
+import titles from "./titles.json";
+import { queryHdcInfoRefer } from "@/service/getData";
+
+export default {
+  data() {
+    return {
+      ifLoading: true,
+      currentPageIdx: 1,
+      totalNum: 0,
+      columns: titles.HdcInfoReferColumns,
+      rewardsList: [],
+      param: {
+        pageNo: 1,
+        phone: null,
+        memberStar: null,
+        pageSize: 20,
+      },
+    };
+  },
+  mounted() {
+    this.getData(1);
+  },
+  methods: {
+    getData(pageIndex) {
+      this.ifLoading = true;
+      this.param.pageNo = pageIndex;
+      queryHdcInfoRefer(this.param).then((res) => {
+        if (!res.code) {
+          this.totalNum = res.totalElements;
+
+          this.rewardsList = res.content.filter(i => i.mobilePhone = i.mobilePhone == null ? "未填写" : i.mobilePhone)
+          .filter(i=>i.toMobilePhone = i.toMobilePhone == null ? "无" : i.toMobilePhone);
+          this.ifLoading = false;
+        } else {
+          this.$Message.error(res.message);
+        }
+      });
+    },
+   
+    refreshData() {
+      this.param.phone = null;
+      this.getData(1);
+    },
+    changePage(pageIndex) {
+      this.currentPageIdx = pageIndex;
+      const subObj = { pageNo: pageIndex };
+      const newParam = Object.assign(subObj, this.param);
+      console.debug("newParam", newParam);
+      this.getData(pageIndex);
+    },
+  },
+};
+</script>

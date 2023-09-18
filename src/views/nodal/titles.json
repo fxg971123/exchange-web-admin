@@ -1,0 +1,154 @@
+{
+  "memberStarRecordColumns": [
+    {
+      "title": "手机号码",
+      "key": "memberPhone"
+    },
+    {
+      "title": "用户ID",
+      "key": "memberId"
+    },
+    {
+      "title": "奖励来源",
+      "key": "referrerLevelName"
+    },
+    {
+      "title": "奖励金额",
+      "key": "number"
+    },
+    {
+      "title": "被邀请人手机号",
+      "key": "toMemberPhone"
+    },
+    {
+      "title": "发放时间",
+      "key": "createTime"
+    }
+  ],
+  "hdcRecordColumns": [
+    {
+      "title": "发放时间",
+      "key": "createTime"
+    },
+    {
+      "title": "奖励",
+      "key": "awardHdc"
+    },
+    {
+      "title": "用户ID",
+      "key": "memberId"
+    },
+    {
+      "title": "手机号码",
+      "key": "mobilePhone"
+    }
+  ],
+  "HdcInfoReferColumns": [
+    {
+      "title": "用户手机号",
+      "key": "mobilePhone"
+    },
+    {
+      "title": "用户ID",
+      "key": "memberId"
+    },
+    {
+      "title": "节点等级",
+      "key": "memberStar"
+    },
+    {
+      "title": "邀请人手机号",
+      "key": "toMobilePhone"
+    },
+    {
+      "title": "购买时间",
+      "key": "createTime"
+    }
+  ],
+  "memberRecordColumns": [
+    {
+      "title": "用户手机号",
+      "key": "mobilePhone"
+    },
+    {
+      "title": "用户ID",
+      "key": "memberId"
+    },
+    {
+      "title": "节点等级",
+      "key": "memberStar"
+    },
+    {
+      "title": "购买方式",
+      "key": "type"
+    },
+    {
+      "title": "HDZ价格",
+      "key": "currentHdz"
+    },
+    {
+      "title": "HDZ数量",
+      "key": "hdz"
+    },
+    {
+      "title": "CNHD价格",
+      "key": "cnhd"
+    },
+    {
+      "title": "发放时间",
+      "key": "createTime"
+    }
+  ],
+  "hdcTradeAwardColumns": [
+    {
+      "title": "用户手机号",
+      "key": "memberPhone"
+    },
+    {
+      "title": "用户ID",
+      "key": "memberId"
+    },
+    {
+      "title": "领取奖励数量",
+      "key": "number"
+    },
+    {
+      "title": "用户星级",
+      "key": "memberStar"
+    },
+    {
+      "title": "领取奖励时间",
+      "key": "createTime"
+    }
+  ],
+  "groupChargeAward": [
+    {
+      "title": "手续费用户手机号",
+      "key": "memberPhone"
+    },
+    {
+      "title": "用户ID",
+      "key": "memberId"
+    },
+    {
+      "title": "领取奖励时间",
+      "key": "createTime"
+    },
+    {
+      "title": "总手续费",
+      "key": "money"
+    },
+    {
+      "title": "奖励用户ID",
+      "key": "toMemberId"
+    },
+    {
+      "title": "奖励用户手机号",
+      "key": "toMemberPhone"
+    },
+    {
+      "title": "奖励用户星级",
+      "key": "toMemberStar"
+    }
+  ]
+}
