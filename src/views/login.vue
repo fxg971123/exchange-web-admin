@@ -162,8 +162,8 @@ export default {
         signIn({ code: this.code })
           .then((res) => {
             if (!res.code) {
-              console.debug('res.data.permissions',res.data.permissions)
-              debugger
+              // console.debug('res.data.permissions',res.data.permissions)
+              // debugger
               setStore("leftSidebarList", res.data.permissions);
               Cookies.set("user", res.data.admin.username, { expires: 7 });
               Cookies.set("userInfo", res.data.admin, { expires: 7 });

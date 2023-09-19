@@ -13,6 +13,12 @@
             手机号：<Input placeholder="手机号" v-model.trim="param.phone" />
           </div>
           <div class="poptip">
+						<span>创世等级：</span>
+						<Select v-model="param.csLevel" clearable>
+							<Option v-for="item in 7" :value="item" :key="item">{{ item }}</Option>
+						</Select>
+					</div>
+          <div class="poptip">
             <DatePicker
               type="daterange"
               placement="bottom-end"

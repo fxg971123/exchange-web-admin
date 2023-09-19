@@ -1,4 +1,3 @@
-
 <template>
   <div>
     <Card>
@@ -16,7 +15,7 @@
           
           <div class="poptip">
 						<span>创世等级：</span>
-						<Select v-model="param.memberStar">
+						<Select v-model="param.memberStar" clearable>
 							<Option v-for="item in 7" :value="item" :key="item">{{ item }}</Option>
 						</Select>
 					</div>
