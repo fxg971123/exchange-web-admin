@@ -1,26 +1,42 @@
 {
   "memberStarRecordColumns": [
     {
-      "title": "手机号码",
-      "key": "memberPhone"
-    },
-    {
-      "title": "用户ID",
+      "title": "购买人ID",
       "key": "memberId",
       "width": 100
     },
     {
-      "title": "奖励来源",
-      "key": "referrerLevelName"
+      "title": "用户手机号",
+      "key": "memberPhone"
+    },
+    {
+      "title": "购买星级",
+      "key": "memberStar"
+    },
+    {
+      "title": "购买金额",
+      "key": "money"
     },
     {
       "title": "奖励金额",
       "key": "number"
     },
     {
+      "title": "奖励比例",
+      "key": "proportion"
+    },
+    {
+      "title": "奖励来源",
+      "key": "referrerLevelName"
+    },
+    {
       "title": "被邀请人手机号",
       "key": "toMemberPhone"
     },
+    {
+      "title": "奖励人星级",
+      "key": "toMemberStar"
+    },    
     {
       "title": "发放时间",
       "key": "createTime"
@@ -28,56 +44,35 @@
   ],
   "hdcRecordColumns": [
     {
-      "title": "奖励",
-      "key": "awardHdc"
-    },
-    {
       "title": "用户ID",
-      "key": "memberId"
+      "key": "memberId",
+      "width": 100
     },
     {
-      "title": "手机号码",
+      "title": "用户手机号",
       "key": "mobilePhone"
     },
+    {
+      "title": "奖励",
+      "key": "awardHdc"
+    },    
     {
       "title": "发放时间",
       "key": "createTime"
     }
   ],
-  "HdcInfoReferColumns": [
-    {
-      "title": "用户手机号",
-      "key": "mobilePhone"
-    },
-    {
-      "title": "用户ID",
-      "key": "memberId"
-    },
-    {
-      "title": "节点等级",
-      "key": "memberStar"
-    },
-    {
-      "title": "邀请人手机号",
-      "key": "toMobilePhone"
-    },
-    {
-      "title": "购买时间",
-      "key": "createTime"
-    }
-  ],
   "memberRecordColumns": [
-    {
-      "title": "用户手机号",
-      "key": "mobilePhone"
-    },
     {
       "title": "用户ID",
       "key": "memberId",
       "width": 100
     },
     {
-      "title": "节点等级",
+      "title": "用户手机号",
+      "key": "mobilePhone"
+    },
+    {
+      "title": "用户星级",
       "width": 100,
       "key": "memberStar"
     },
@@ -94,32 +89,68 @@
       "key": "hdz"
     },
     {
-      "title": "CNHD价格",
+      "title": "CNHD数量",
       "key": "cnhd"
+    },
+    {
+      "title": "初次购买时间",
+      "key": "firstCreateTime"
     },
     {
       "title": "发放时间",
       "key": "createTime"
     }
   ],
-  "hdcTradeAwardColumns": [
-    {
-      "title": "用户手机号",
-      "key": "memberPhone"
-    },
+  "HdcInfoReferColumns": [
     {
       "title": "用户ID",
       "key": "memberId",
       "width": 100
     },
     {
-      "title": "领取奖励数量",
-      "key": "number"
+      "title": "用户手机号",
+      "key": "mobilePhone"
+    },
+    {
+      "title": "首次购买时间",
+      "key": "memberFirstTime"
     },
     {
       "title": "用户星级",
       "key": "memberStar"
+    },    
+    {
+      "title": "邀请人手机号",
+      "key": "toMobilePhone"
     },
+    {
+      "title": "邀请人首次购买时间",
+      "key": "toMemberFirstTime"
+    },
+    {
+      "title": "邀请人星级",
+      "key": "toMemberStar"
+    }
+  ],  
+  "hdcTradeAwardColumns": [
+    {
+      "title": "用户ID",
+      "key": "memberId",
+      "width": 100
+    },
+    {
+      "title": "用户手机号",
+      "key": "memberPhone"
+    },
+    {
+      "title": "用户星级",
+      "key": "memberStar",
+      "width": 100
+    },
+    {
+      "title": "领取奖励数量",
+      "key": "number"
+    },    
     {
       "title": "领取奖励时间",
       "key": "createTime"
@@ -127,14 +158,14 @@
   ],
   "groupChargeAward": [
     {
-      "title": "手续费用户手机号",
-      "key": "memberPhone"
-    },
-    {
       "title": "用户ID",
       "key": "memberId",
       "width": 100
     },
+    {
+      "title": "手续费用户手机号",
+      "key": "memberPhone"
+    },    
     {
       "title": "总手续费",
       "key": "money"
@@ -149,8 +180,7 @@
     },
     {
       "title": "奖励用户星级",
-      "key": "toMemberStar",
-      "width": 100
+      "key": "toMemberStar"
     },
     {
       "title": "领取奖励时间",

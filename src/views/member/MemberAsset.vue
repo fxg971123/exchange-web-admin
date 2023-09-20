@@ -231,7 +231,3 @@ import { memberAsset } from '@/service/getData'
 
   }
 </script>
-
-<style lang="less" scoped>
-
-</style>

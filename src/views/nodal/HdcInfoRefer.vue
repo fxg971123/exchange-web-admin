@@ -76,21 +76,14 @@ export default {
     getData(pageIndex) {
       this.ifLoading = true;
       this.param.pageNo = pageIndex;
-      queryHdcInfoRefer(this.param).then((res) => {
+      queryHdcInfoRefer(this.param).then(res => {
         if (!res.code) {
           this.totalNum = res.totalElements;
-
           this.rewardsList = res.content
-            .filter(
-              (i) =>
-                (i.mobilePhone =
-                  i.mobilePhone == null ? "未填写" : i.mobilePhone)
-            )
-            .filter(
-              (i) =>
-                (i.toMobilePhone =
-                  i.toMobilePhone == null ? "无" : i.toMobilePhone)
-            );
+            .filter(i =>i.mobilePhone =i.mobilePhone == null ? "未填写" : i.mobilePhone)
+            .filter(i =>i.toMobilePhone =i.toMobilePhone == null ? "无" : i.toMobilePhone)
+            .filter(i =>i.toMemberFirstTime =i.toMemberFirstTime == null ? "--" : i.toMemberFirstTime)
+            .filter(i =>i.toMemberStar =i.toMemberStar == null ? "无" : i.toMemberStar);
           this.ifLoading = false;
         } else {
           const errText = res.code == 500 ? "服务器错误" : res.message;
@@ -99,7 +92,6 @@ export default {
         }
       });
     },
-
     refreshData() {
       this.param.phone = null;
       this.getData(1);
