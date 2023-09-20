@@ -6,7 +6,8 @@
     },
     {
       "title": "用户ID",
-      "key": "memberId"
+      "key": "memberId",
+      "width": 100
     },
     {
       "title": "奖励来源",
@@ -27,10 +28,6 @@
   ],
   "hdcRecordColumns": [
     {
-      "title": "发放时间",
-      "key": "createTime"
-    },
-    {
       "title": "奖励",
       "key": "awardHdc"
     },
@@ -41,6 +38,10 @@
     {
       "title": "手机号码",
       "key": "mobilePhone"
+    },
+    {
+      "title": "发放时间",
+      "key": "createTime"
     }
   ],
   "HdcInfoReferColumns": [
@@ -72,10 +73,12 @@
     },
     {
       "title": "用户ID",
-      "key": "memberId"
+      "key": "memberId",
+      "width": 100
     },
     {
       "title": "节点等级",
+      "width": 100,
       "key": "memberStar"
     },
     {
@@ -106,7 +109,8 @@
     },
     {
       "title": "用户ID",
-      "key": "memberId"
+      "key": "memberId",
+      "width": 100
     },
     {
       "title": "领取奖励数量",
@@ -128,11 +132,8 @@
     },
     {
       "title": "用户ID",
-      "key": "memberId"
-    },
-    {
-      "title": "领取奖励时间",
-      "key": "createTime"
+      "key": "memberId",
+      "width": 100
     },
     {
       "title": "总手续费",
@@ -148,7 +149,12 @@
     },
     {
       "title": "奖励用户星级",
-      "key": "toMemberStar"
+      "key": "toMemberStar",
+      "width": 100
+    },
+    {
+      "title": "领取奖励时间",
+      "key": "createTime"
     }
   ]
 }

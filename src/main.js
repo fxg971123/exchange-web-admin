@@ -1,17 +1,15 @@
 import Vue from 'vue';
 import iView from 'iview';
-import { router, initRouter } from './router/index';
+import { router } from './router/index';
 import { appRouter } from './router/router';
 import store from './store';
 import App from './app.vue';
 import 'iview/dist/styles/iview.css';
 import util from '@/libs/util';
 import axios from 'axios';
-import qs from 'qs';
 import Api from '@/config/api';
 import Cookies from 'js-cookie';
 import Viser from 'viser-vue';
-import { setStore, getStore, removeStore } from "@/config/storage.js";
 import fullscreen from 'vue-fullscreen'
 
 Vue.prototype.$ajax = axios;

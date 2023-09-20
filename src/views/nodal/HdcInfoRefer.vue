@@ -12,13 +12,15 @@
           <div class="poptip">
             <Input placeholder="用户手机号" v-model.trim="param.phone" />
           </div>
-          
+
           <div class="poptip">
-						<span>创世等级：</span>
-						<Select v-model="param.memberStar" clearable>
-							<Option v-for="item in 7" :value="item" :key="item">{{ item }}</Option>
-						</Select>
-					</div>
+            <span>创世等级：</span>
+            <Select v-model="param.memberStar" clearable>
+              <Option v-for="item in 7" :value="item" :key="item">{{
+                item
+              }}</Option>
+            </Select>
+          </div>
 
           <div class="btns">
             <Button type="info" @click="getData(1)">搜索</Button>
@@ -78,15 +80,26 @@ export default {
         if (!res.code) {
           this.totalNum = res.totalElements;
 
-          this.rewardsList = res.content.filter(i => i.mobilePhone = i.mobilePhone == null ? "未填写" : i.mobilePhone)
-          .filter(i=>i.toMobilePhone = i.toMobilePhone == null ? "无" : i.toMobilePhone);
+          this.rewardsList = res.content
+            .filter(
+              (i) =>
+                (i.mobilePhone =
+                  i.mobilePhone == null ? "未填写" : i.mobilePhone)
+            )
+            .filter(
+              (i) =>
+                (i.toMobilePhone =
+                  i.toMobilePhone == null ? "无" : i.toMobilePhone)
+            );
           this.ifLoading = false;
         } else {
-          this.$Message.error(res.message);
+          const errText = res.code == 500 ? "服务器错误" : res.message;
+          this.$Message.error(errText);
+          this.ifLoading = false;
         }
       });
     },
-   
+
     refreshData() {
       this.param.phone = null;
       this.getData(1);

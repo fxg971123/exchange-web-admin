@@ -11,12 +11,8 @@ util.title = function(title) {
     window.document.title = title;
 };
 
-const ajaxUrl = env === 'development' ?
-    'http://127.0.0.1:8888' :
-    env === 'production' ?
+const ajaxUrl = env === 'development' ? 'http://134.122.174.140' : env === 'production' ?
     'https://api.huidu.xyz' :
-    // 'http://134.122.174.140' :
-
 
 util.ajax = axios.create({
     baseURL: ajaxUrl,

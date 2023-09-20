@@ -1,4 +1,4 @@
-name: Build app and deploy to Tencent
+name: Build app and deploy to testServer
 on:
 #触发事件，当收到推送的时候执行
  push:
