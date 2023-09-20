@@ -14,9 +14,8 @@ util.title = function(title) {
 const ajaxUrl = env === 'development' ?
     'http://127.0.0.1:8888' :
     env === 'production' ?
-    // 'https://api.huidu.xyz' :
-    // 'http://192.168.2.72':
-    'http://134.122.174.140' :
+    'https://api.huidu.xyz' :
+    // 'http://134.122.174.140' :
 
 
 util.ajax = axios.create({

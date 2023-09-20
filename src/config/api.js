@@ -1,7 +1,6 @@
 export default {
-    //  host: 'https://api.huidu.xyz',
-    host: 'http://134.122.174.140',
-    // host:'http://192.168.2.72',
+     host: 'https://api.huidu.xyz',
+    // host: 'http://134.122.174.140',
      // host: 'http://api.dev.huidu.org',
     common: {
         login: '/admin/system/employee/sign/in'
