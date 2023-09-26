@@ -30,7 +30,7 @@
       "key": "referrerLevelName"
     },
     {
-      "title": "被邀请人手机号",
+      "title": "邀请人手机号",
       "key": "toMemberPhone"
     },
     {
@@ -49,13 +49,29 @@
       "width": 100
     },
     {
-      "title": "用户手机号",
+      "title": "用户星级",
       "key": "mobilePhone"
     },
     {
-      "title": "奖励",
-      "key": "awardHdc"
+      "title": "用户手机号",
+      "key": "memberStar"
+    },
+    {
+      "title": "星级人数",
+      "key": "memberStarPeople"
+    },
+    {
+      "title": "奖励基数",
+      "key": "sumAwardNumber"
+    },
+    {
+      "title": "单份数量",
+      "key": "unitNumber"
     },    
+    {
+      "title": "奖励数量",
+      "key": "awardHdc"
+    },
     {
       "title": "发放时间",
       "key": "createTime"
@@ -80,6 +96,10 @@
       "title": "购买方式",
       "key": "type"
     },
+    {
+      "title": "购买份数",
+      "key": "count"
+    },    
     {
       "title": "HDZ价格",
       "key": "currentHdz"
@@ -140,7 +160,8 @@
     },
     {
       "title": "用户手机号",
-      "key": "memberPhone"
+      "key": "memberPhone",
+      "width": 110
     },
     {
       "title": "用户星级",
@@ -148,8 +169,28 @@
       "width": 100
     },
     {
+      "title": "星级对应人数",
+      "key": "memberStarPeople",
+      "width": 120
+    },
+    {
+      "title": "奖励基数",
+      "key": "sumAwardNumber",
+      "width": 100
+    },
+    {
+      "title": "星级奖励总数",
+      "key": "sumCount",
+      "width": 120
+    },
+    {
+      "title": "奖励比例",
+      "key": "ratio",
+      "width": 200
+    },    {
       "title": "领取奖励数量",
-      "key": "number"
+      "key": "number",
+      "width": 120
     },    
     {
       "title": "领取奖励时间",
@@ -170,6 +211,14 @@
       "title": "总手续费",
       "key": "money"
     },
+    {
+      "title": "奖励比例",
+      "key": "proportion"
+    },
+    {
+      "title": "奖励数量",
+      "key": "number"
+    },    
     {
       "title": "奖励用户ID",
       "key": "toMemberId"

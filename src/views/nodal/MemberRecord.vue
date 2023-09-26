@@ -10,14 +10,16 @@
       <Row class="functionWrapper">
         <div class="searchWrapper">
           <div class="poptip">
-            手机号：<Input placeholder="手机号" v-model.trim="param.phone" />
+            <Input placeholder="手机号" v-model.trim="param.phone" />
           </div>
           <div class="poptip">
-						<span>创世等级：</span>
-						<Select v-model="param.csLevel" clearable>
-							<Option v-for="item in 7" :value="item" :key="item">{{ item }}</Option>
-						</Select>
-					</div>
+            <span>创世等级：</span>
+            <Select v-model="param.csLevel" clearable>
+              <Option v-for="item in 7" :value="item" :key="item">{{
+                item
+              }}</Option>
+            </Select>
+          </div>
           <div class="poptip">
             <DatePicker
               type="daterange"
@@ -31,6 +33,16 @@
           <div class="btns">
             <Button type="info" @click="getData(1)">搜索</Button>
           </div>
+        </div>
+        <div class="btnsWrapper clearfix">
+          <DatePicker
+            type="daterange"
+            placement="bottom-end"
+            @on-change="exportDateRange"
+            placeholder="导出时间区间"
+          >
+          </DatePicker>
+          <Button type="success" @click="exportExcel">导出</Button>
         </div>
       </Row>
       <Row class="tableWrapper">
@@ -56,8 +68,9 @@
 </template>
 
 <script>
+import util from "@/libs/util";
 import titles from "./titles.json";
-import { queryMemberRecord } from "@/service/getData";
+import { queryMemberRecord,exportMemberRecord } from "@/service/getData";
 
 export default {
   data() {
@@ -69,11 +82,15 @@ export default {
       rewardsList: [],
       param: {
         pageNo: 1,
-        csLevel:null,
+        csLevel: null,
         phone: null,
         startTime: null,
         endTime: null,
         pageSize: 20,
+      },
+      exportParam: {
+        endTime: null,
+        startTime: null,
       },
     };
   },
@@ -87,7 +104,10 @@ export default {
       queryMemberRecord(this.param).then((res) => {
         if (!res.code) {
           this.totalNum = res.totalElements;
-          this.rewardsList = res.content.filter(i =>i.mobilePhone = i.mobilePhone == null ? "未填写" : i.mobilePhone);
+          this.rewardsList = res.content.filter(
+            (i) =>
+              (i.mobilePhone = i.mobilePhone == null ? "未填写" : i.mobilePhone)
+          );
           this.ifLoading = false;
         } else {
           this.$Message.error(res.message);
@@ -97,6 +117,15 @@ export default {
     dateRange(val) {
       this.param.startTime = val[0] != "" ? val[0] + " 00:00:00" : null;
       this.param.endTime = val[1] != "" ? val[1] + " 23:59:59" : null;
+    },
+    exportDateRange(val) {
+      this.exportParam.startTime = val[0] != "" ? val[0] : null;
+      this.exportParam.endTime = val[1] != "" ? val[1] : null;
+    },
+    exportExcel() {
+      exportMemberRecord(this.exportParam).then((res) => {
+        util.putoutTeam("创世节点购买记录", res);
+      });
     },
     refreshData() {
       this.param.phone = null;

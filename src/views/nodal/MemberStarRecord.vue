@@ -8,9 +8,9 @@
         </Button>
       </p>
       <Row class="functionWrapper">
-        <div class="searchWrapper">
+        <div class="searchWrapper clearfix">
           <div class="poptip">
-            手机号：<Input placeholder="手机号" v-model.trim="param.phone" />
+            <Input placeholder="手机号" v-model.trim="param.phone" />
           </div>
           <div class="poptip">
             <DatePicker
@@ -26,6 +26,16 @@
             <Button type="info" @click="getData(1)">搜索</Button>
           </div>
         </div>
+        <div class="btnsWrapper clearfix">
+          <DatePicker
+            type="daterange"
+            placement="bottom-end"
+            @on-change="exportDateRange"
+            placeholder="导出时间区间"
+          >
+          </DatePicker>
+          <Button type="success" @click="exportExcel">导出</Button>
+        </div>
       </Row>
       <Row class="tableWrapper">
         <Table
@@ -33,6 +43,7 @@
           :columns="columns"
           :data="rewardsList"
           :loading="ifLoading"
+          ref="table"
         >
         </Table>
       </Row>
@@ -50,8 +61,12 @@
 </template>
 
 <script>
+import util from "@/libs/util";
 import titles from "./titles.json";
-import { queryMemberStarRecord } from "@/service/getData";
+import {
+  queryMemberStarRecord,
+  exportMemberStarRecord,
+} from "@/service/getData";
 
 export default {
   data() {
@@ -66,7 +81,11 @@ export default {
         pageNo: 1,
         pageSize: 20,
         phone: null,
-        startTime: null
+        startTime: null,
+      },
+      exportParam: {
+        endTime: null,
+        startTime: null,
       },
     };
   },
@@ -80,9 +99,22 @@ export default {
       queryMemberStarRecord(this.param).then((res) => {
         if (!res.code) {
           this.totalNum = res.totalElements;
-          this.rewardsList = res.content.filter(i =>i.memberPhone = i.memberPhone == null ? "未填写" : i.memberPhone)
-          .filter(i=>i.toMemberPhone = i.toMemberPhone == null ? "无" : i.toMemberPhone)
-          .filter(i=>i.referrerLevelName = i.referrerLevelName == null ? "未知" : i.referrerLevelName);
+          this.rewardsList = res.content
+            .filter(
+              (i) =>
+                (i.memberPhone =
+                  i.memberPhone == null ? "未填写" : i.memberPhone)
+            )
+            .filter(
+              (i) =>
+                (i.toMemberPhone =
+                  i.toMemberPhone == null ? "无" : i.toMemberPhone)
+            )
+            .filter(
+              (i) =>
+                (i.referrerLevelName =
+                  i.referrerLevelName == null ? "未知" : i.referrerLevelName)
+            );
           this.ifLoading = false;
         } else {
           this.$Message.error(res.message);
@@ -93,6 +125,17 @@ export default {
       this.param.startTime = val[0] != "" ? val[0] + " 00:00:00" : null;
       this.param.endTime = val[1] != "" ? val[1] + " 23:59:59" : null;
     },
+    exportDateRange(val) {
+      this.exportParam.startTime = val[0] != "" ? val[0] : null;
+      this.exportParam.endTime = val[1] != "" ? val[1] : null;
+    },
+    exportExcel() {
+      exportMemberStarRecord(this.exportParam).then((res) => {
+        console.log("导出成功", res);
+        util.putoutTeam("升星奖励查询", res);
+      });
+    },
+
     refreshData() {
       this.param.phone = null;
       this.param.startTime = null;

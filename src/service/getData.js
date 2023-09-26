@@ -1,4 +1,4 @@
-import { BASEURL, fetch, post, patch, put, postConfig } from './http.js'
+import { BASEURL, fetch, post, patch, put, postConfig,postExportConfig } from './http.js'
 
 export const BASICURL = BASEURL;
 // export const uploadPic = data => post('', data);
@@ -685,3 +685,16 @@ export const queryHdcInfoRefer = data => fetch('member/getReferre', data)
 export const queryChargeAwardRecord = data => fetch('member/getChargeAwardRecord', data)
 // GET获取 "创世节点"=>"团队推荐手续费奖励"
 export const queryGroupChargeAward = data => fetch('member/getGroupChargeAward', data)
+
+// 升星奖励导出
+export const exportMemberStarRecord = (data) => postExportConfig('member/export/memberStarRecordExport',data)
+// HDC奖励导出
+export const exportHdcAward = (data) => postExportConfig('member/export/hdcAwardExport',data)
+// 信息查询导出
+export const exportMemberInfo = (data) => postExportConfig('member/export/memberInfoExport',data)
+// 购买记录导出
+export const exportMemberRecord = (data) => postExportConfig('member/export/memberRecordExport',data)
+// 交易手续费奖励导出
+export const exportChargeAwardRecord = (data) => postExportConfig('member/export/chargeAwardRecordExport',data)
+// 团队手续费奖励导出
+export const exportGroupChargeAward = (data) => postExportConfig('member/export/groupChargeAwardExport',data)

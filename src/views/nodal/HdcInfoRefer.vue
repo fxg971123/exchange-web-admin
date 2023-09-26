@@ -26,6 +26,10 @@
             <Button type="info" @click="getData(1)">搜索</Button>
           </div>
         </div>
+        <div class="btnsWrapper clearfix">
+       
+          <Button type="success" @click="exportExcel">导出</Button>
+        </div>
       </Row>
       <Row class="tableWrapper">
         <Table
@@ -50,8 +54,9 @@
 </template>
 
 <script>
+import util from "@/libs/util";
 import titles from "./titles.json";
-import { queryHdcInfoRefer } from "@/service/getData";
+import { queryHdcInfoRefer,exportMemberInfo } from "@/service/getData";
 
 export default {
   data() {
@@ -66,7 +71,7 @@ export default {
         phone: null,
         memberStar: null,
         pageSize: 20,
-      },
+      }
     };
   },
   mounted() {
@@ -76,20 +81,42 @@ export default {
     getData(pageIndex) {
       this.ifLoading = true;
       this.param.pageNo = pageIndex;
-      queryHdcInfoRefer(this.param).then(res => {
+      queryHdcInfoRefer(this.param).then((res) => {
         if (!res.code) {
           this.totalNum = res.totalElements;
           this.rewardsList = res.content
-            .filter(i =>i.mobilePhone =i.mobilePhone == null ? "未填写" : i.mobilePhone)
-            .filter(i =>i.toMobilePhone =i.toMobilePhone == null ? "无" : i.toMobilePhone)
-            .filter(i =>i.toMemberFirstTime =i.toMemberFirstTime == null ? "--" : i.toMemberFirstTime)
-            .filter(i =>i.toMemberStar =i.toMemberStar == null ? "无" : i.toMemberStar);
+            .filter(
+              (i) =>
+                (i.mobilePhone =
+                  i.mobilePhone == null ? "未填写" : i.mobilePhone)
+            )
+            .filter(
+              (i) =>
+                (i.toMobilePhone =
+                  i.toMobilePhone == null ? "无" : i.toMobilePhone)
+            )
+            .filter(
+              (i) =>
+                (i.toMemberFirstTime =
+                  i.toMemberFirstTime == null ? "--" : i.toMemberFirstTime)
+            )
+            .filter(
+              (i) =>
+                (i.toMemberStar =
+                  i.toMemberStar == null ? "无" : i.toMemberStar)
+            );
           this.ifLoading = false;
         } else {
           const errText = res.code == 500 ? "服务器错误" : res.message;
           this.$Message.error(errText);
           this.ifLoading = false;
         }
+      });
+    },
+
+    exportExcel() {
+      exportMemberInfo({}).then((res) => {
+        util.putoutTeam("创世节点信息查询", res);
       });
     },
     refreshData() {
