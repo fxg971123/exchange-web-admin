@@ -97,7 +97,7 @@
 				width="400"
 				@on-ok="subReject"
 			>
-				<Input v-model="subCheck.reason" type="textarea" placeholder="请输入拒绝原因...">
+				<Input v-model.trim="subCheck.reason" type="textarea" placeholder="请输入拒绝原因...">
 				</Input>
 			</Modal>
     </Card>

@@ -36,7 +36,7 @@
 
             <Row v-show="!phoneNum" prop="captcha">
               <Col span="12">
-                <Input v-model="form.captcha" placeholder="验证码">
+                <Input v-model.trim="form.captcha" placeholder="验证码">
                   <span slot="prepend">
                     <Icon :size="14" type="locked"></Icon> </span
                 ></Input>

@@ -31,7 +31,7 @@
           <Form label-position="right" :model="formValidate" :label-width="100" :rules="ruleValidate"> 
 
             <FormItem label="角色名称：" prop="name">
-              <Input v-model="formValidate.name"></Input>
+              <Input v-model.trim="formValidate.name"></Input>
             </FormItem>
 
             <FormItem label="角色描述：">

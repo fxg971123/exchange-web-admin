@@ -302,4 +302,17 @@ util.putoutTeam = (name, res) => {
   document.body.removeChild(link);
 };
 
+util.imageIsExist = (url) => {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => {
+      resolve(true);
+    };
+    img.onerror = () => {
+      reject(false);
+    };
+    img.src = url;
+  });
+};
+
 export default util;

@@ -58,19 +58,19 @@
          <ul>
              <li><span><i>*</i>用户ID：</span>
                  <p>
-                     <Input v-model="detailRank.memberId" disabled></Input>
+                     <Input v-model.trim="detailRank.memberId" disabled></Input>
                      <span>{{ }}</span>
                  </p>
              </li>
              <li><span><i>*</i>交易对：</span>
                  <p>
-                     <Input v-model="detailRank.symbol" disabled></Input>
+                     <Input v-model.trim="detailRank.symbol" disabled></Input>
                      <span>{{ }}</span>
                  </p>
              </li>
              <li><span><i>*</i>期数：</span>
                  <p>
-                     <Input v-model="detailRank.optionNo"></Input>
+                     <Input v-model.trim="detailRank.optionNo"></Input>
                      <RadioGroup v-model="detailRank.optionNoChange">
                          <Radio label="1"><em>保持</em></Radio>
                          <Radio label="2"><em>下一期</em></Radio>
@@ -79,7 +79,7 @@
              </li>
              <li><span><i>*</i>方向：</span>
                  <p>
-                     <Input v-model="detailRank.direction"></Input>
+                     <Input v-model.trim="detailRank.direction"></Input>
                      <RadioGroup v-model="detailRank.directionChange">
                          <Radio label="1"><em>保持</em></Radio>
                          <Radio label="2"><em>反方向</em></Radio>

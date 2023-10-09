@@ -7,10 +7,10 @@
     <div class="formWrapper">
       <Form :model="activityForm" :label-width="150" class='form'>
           <FormItem label="活动标题:">
-              <Input v-model="activityForm.title"></Input>
+              <Input v-model.trim="activityForm.title"></Input>
           </FormItem>
           <FormItem label="活动简介:">
-              <Input v-model="activityForm.detail"></Input>
+              <Input v-model.trim="activityForm.detail"></Input>
           </FormItem>
           <FormItem label="显示状态:">
                   <RadioGroup v-model="activityForm.status">
@@ -47,18 +47,18 @@
                   </RadioGroup>
           </FormItem>
           <FormItem label="挖矿周期数:" v-if="activityForm.type==5">
-              <Input v-model="activityForm.miningDays"></Input>
+              <Input v-model.trim="activityForm.miningDays"></Input>
           </FormItem>
           <FormItem label="挖矿周期产出:" v-if="activityForm.type==5">
-              <Input v-model="activityForm.miningDaysprofit"></Input>
+              <Input v-model.trim="activityForm.miningDaysprofit"></Input>
           </FormItem>
           <FormItem label="挖矿币种:" v-if="activityForm.type==5">
-              <Input v-model="activityForm.miningUnit"></Input>
+              <Input v-model.trim="activityForm.miningUnit"></Input>
           </FormItem>
 
 
           <FormItem label="锁仓币种:" v-if="activityForm.type==6">
-              <Input v-model="activityForm.lockedUnit"></Input>
+              <Input v-model.trim="activityForm.lockedUnit"></Input>
           </FormItem>
           <FormItem label="锁仓类型:" v-if="activityForm.type == 6">
                   <RadioGroup v-model="activityForm.releaseType">
@@ -69,12 +69,12 @@
           </FormItem>
 
           <FormItem label="周期释放比例:" v-if="activityForm.type == 6 && activityForm.releaseType == 1">
-              <Input v-model="activityForm.releasePercent"></Input>
+              <Input v-model.trim="activityForm.releasePercent"></Input>
               <span style="font-size:10px;color:#FF0000;">释放比例如填写0.15则代表每个周期释放15%</span>
           </FormItem>
 
           <FormItem label="周期释放额度:" v-if="activityForm.type == 6 && activityForm.releaseType == 0">
-              <Input v-model="activityForm.releaseAmount"></Input>
+              <Input v-model.trim="activityForm.releaseAmount"></Input>
           </FormItem>
           <FormItem label="释放周期:" v-if="activityForm.type == 6">
                   <RadioGroup v-model="activityForm.lockedPeriod">
@@ -86,28 +86,28 @@
           </FormItem>
 
           <FormItem label="锁仓总周期数:" v-if="activityForm.type == 6">
-              <Input v-model="activityForm.lockedDays"></Input>
+              <Input v-model.trim="activityForm.lockedDays"></Input>
               <span style="font-size:10px;color:#FF0000;">等比释放会在最后一个周期全部释放完毕，不管剩余多少</span>
           </FormItem>
 
           <FormItem label="参与门槛:" v-if="activityForm.type == 6">
-              <Input v-model="activityForm.lockedFee"></Input>
+              <Input v-model.trim="activityForm.lockedFee"></Input>
               <span style="font-size:10px;color:#FF0000;">此门槛费用为锁仓特有参数，用户参与该锁仓后，将从余额中扣除该数量的币种</span>
           </FormItem>
 
           <FormItem label="释放倍数:" v-if="activityForm.type == 6">
-              <Input v-model="activityForm.releaseTimes"></Input>
+              <Input v-model.trim="activityForm.releaseTimes"></Input>
               <span style="font-size:10px;color:#FF0000;">释放倍数填写大于0的数值后，”周期释放额度“将失效。周期释放数量将自动以总量/周期数量释放。此数值可为小数，如1.5</span>
           </FormItem>
 
           <FormItem label="邀请(购买)产能增加:" v-if="activityForm.type==5 || activityForm.type == 6">
-              <Input v-model="activityForm.miningInvite" placeholder="如：0.01(即基础产能增加1%)，0则不增加"></Input>
+              <Input v-model.trim="activityForm.miningInvite" placeholder="如：0.01(即基础产能增加1%)，0则不增加"></Input>
           </FormItem>
           <FormItem label="产能增加上限:" v-if="activityForm.type==5 || activityForm.type == 6">
-              <Input v-model="activityForm.miningInvitelimit" placeholder="如：0.1(即基础产能增加上限为10%)，0则无上限"></Input>
+              <Input v-model.trim="activityForm.miningInvitelimit" placeholder="如：0.1(即基础产能增加上限为10%)，0则无上限"></Input>
           </FormItem>
           <FormItem label="一级邀请:">
-              <Input v-model="activityForm.leveloneCount" placeholder="如：8(购买矿机时一级好友不能低于此数)"></Input>
+              <Input v-model.trim="activityForm.leveloneCount" placeholder="如：8(购买矿机时一级好友不能低于此数)"></Input>
               <span style="font-size:10px;color:#FF0000;">要求一级好友人数不能低于该数值，为0则不做要求</span>
           </FormItem>
 
@@ -118,58 +118,58 @@
           </FormItem>
 
           <FormItem label="总供应量:">
-              <Input v-model="activityForm.totalSupply"></Input>
+              <Input v-model.trim="activityForm.totalSupply"></Input>
           </FormItem>
 
           <FormItem label="发行价:">
-              <Input v-model="activityForm.price"></Input>
+              <Input v-model.trim="activityForm.price"></Input>
           </FormItem>
 
           <FormItem label="价格精度:">
-              <Input v-model="activityForm.priceScale"></Input>
+              <Input v-model.trim="activityForm.priceScale"></Input>
           </FormItem>
 
           <FormItem label="币种单位:">
-              <Input v-model="activityForm.unit"></Input>
+              <Input v-model.trim="activityForm.unit"></Input>
           </FormItem>
 
           <FormItem label="接受币种:">
-              <Input v-model="activityForm.acceptUnit"></Input>
+              <Input v-model.trim="activityForm.acceptUnit"></Input>
           </FormItem>
 
           <FormItem label="数量精度:">
-              <Input v-model="activityForm.amountScale"></Input>
+              <Input v-model.trim="activityForm.amountScale"></Input>
           </FormItem>
 
           <FormItem label="最大限购:">
-              <Input v-model="activityForm.maxLimitAmout"></Input>
+              <Input v-model.trim="activityForm.maxLimitAmout"></Input>
           </FormItem>
 
           <FormItem label="最低起购:">
-              <Input v-model="activityForm.minLimitAmout"></Input>
+              <Input v-model.trim="activityForm.minLimitAmout"></Input>
           </FormItem>
 
           <FormItem label="限购次数:">
-              <Input v-model="activityForm.limitTimes"></Input>
+              <Input v-model.trim="activityForm.limitTimes"></Input>
           </FormItem>
 
           <FormItem label="持仓要求币种:">
-              <Input v-model="activityForm.holdUnit"></Input>
+              <Input v-model.trim="activityForm.holdUnit"></Input>
               <span style="font-size:10px;color:#FF0000;">此为参与门槛要求，如要求持有BZB不能低于10000</span>
           </FormItem>
           <FormItem label="持仓最低要求:">
-              <Input v-model="activityForm.holdLimit"></Input>
+              <Input v-model.trim="activityForm.holdLimit"></Input>
           </FormItem>
 
           <FormItem label="活动链接:">
-              <Input v-model="activityForm.activityLink"></Input>
+              <Input v-model.trim="activityForm.activityLink"></Input>
           </FormItem>
           <FormItem label="公告链接:">
-              <Input v-model="activityForm.noticeLink"></Input>
+              <Input v-model.trim="activityForm.noticeLink"></Input>
           </FormItem>
 
           <FormItem label="配置JSON:">
-              <Input v-model="activityForm.settings" type="textarea" :rows="5"></Input>
+              <Input v-model.trim="activityForm.settings" type="textarea" :rows="5"></Input>
           </FormItem>
 
           <FormItem label="列表小图:">
@@ -232,7 +232,7 @@
           width="350"
           @on-cancle="loginPW = ''"
           @on-ok="confirmLoginPass">
-          <Input v-model="loginPW" type="password" placeholder="请输入登录密码"></Input>
+          <Input v-model.trim="loginPW" type="password" placeholder="请输入登录密码"></Input>
    </Modal>
 </div>
 

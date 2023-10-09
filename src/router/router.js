@@ -75,7 +75,7 @@ export const otherRouter = {
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里<Icon type="briefcase"></Icon>
 
 let findSlideArr = [
-    { id: 287, path: '/nodal', icon: 'earth', component: Main },
+    { id: 287, path: '/nodal', icon: 'earth', component: Main},
     { id: 8, path: '/system', icon: 'android-settings', component: Main },
     { id: 11, path: '/member', icon: 'person-stalker', component: Main },
     { id: 66, path: '/otc', icon: 'briefcase', component: Main },
@@ -138,11 +138,12 @@ let findSlideArr = [
     { id: 259, path: 'contractRewardSet', icon: 'document', component: resolve => { require(['@/views/swap/ContractRewardSet.vue'], resolve) }},
     { id: 290,path:'hdcRecord',icon: 'document', component: resolve => { require(['@/views/nodal/HdcRecord.vue'], resolve); }},
     { id:291, path:'memberRecord',icon: 'document', component: resolve => { require(['@/views/nodal/MemberRecord.vue'], resolve); }},
-    { id:289, path:'memberStarRecord',icon: 'document', component: resolve => { require(['@/views/nodal/MemberStarRecord.vue'], resolve); }},
+    { id:289, path:'memberStarRecord',name:'memberStarRecord',icon: 'document',component: resolve => { require(['@/views/nodal/MemberStarRecord.vue'], resolve); }},
     { id:292, path:'hdcInfoRefer',icon: 'document', component: resolve => { require(['@/views/nodal/HdcInfoRefer.vue'], resolve); }},
     { id:293, path:'chargeAwardRecord',icon: 'document', component: resolve => { require(['@/views/nodal/ChargeAwardRecord.vue'], resolve); }},
-    { id:294, path:'groupChargeAward',icon: 'document', component: resolve => { require(['@/views/nodal/GroupChargeAward.vue'], resolve); }},
+    { id:294, path:'groupChargeAward',name:'groupChargeAward',icon: 'document', component: resolve => { require(['@/views/nodal/GroupChargeAward.vue'], resolve); }},
 ]
+// 服务器返回的路由
 let sidebarArr = JSON.parse(getStore('leftSidebarList')) || [];
 
 let userDefinedIDArr = [];
@@ -166,6 +167,7 @@ if (formateUndefinedArr.length > 0) {
         let index = userDefinedIDArr.indexOf(item.id);
         item.path = findSlideArr[index].path;
         item.icon = findSlideArr[index].icon;
+        item.meta = {keepAlive: true};
         item.perChildren = [...item.subMenu];
         item.children = [];
         item.component = Main
@@ -176,6 +178,7 @@ if (formateUndefinedArr.length > 0) {
                 if (subIndex !== -1) {
                     it.icon = findSlideArr[subIndex].icon;
                     it.path = findSlideArr[subIndex].path;
+                    it.meta = {keepAlive: true};
                     it.component = findSlideArr[subIndex].component;
                 } else {
                     delete item.perChildren[index]
@@ -187,7 +190,7 @@ if (formateUndefinedArr.length > 0) {
 
         }
     })
-    console.log(formateUndefinedArr);
+    // console.log(formateUndefinedArr);
 }
 
 export let appRouter = formateUndefinedArr;

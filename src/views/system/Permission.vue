@@ -46,14 +46,14 @@
           <li>
             <span><i>*</i>权限标题：</span>
             <p>
-              <Input v-model="title" ></Input>  
+              <Input v-model.trim="title" ></Input>  
             </p>
           </li>
 
           <li>
             <span><i>*</i>权限名称：</span>
             <p>
-              <Input v-model="name" ></Input>
+              <Input v-model.trim="name" ></Input>
             </p>
           </li>
          

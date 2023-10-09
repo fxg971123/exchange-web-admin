@@ -43,25 +43,25 @@
 							:label-width="100" 
 							label-position="right">
 					<FormItem label="币种编号：" prop="id" v-show="false">
-						<Input v-model="coinInformation.id" ></Input>
+						<Input v-model.trim="coinInformation.id" ></Input>
 					</FormItem>
 					<FormItem label="币种名称：" prop="nameCn">
-						<Input v-model="coinInformation.nameCn"></Input>
+						<Input v-model.trim="coinInformation.nameCn"></Input>
 					</FormItem>
 					<FormItem label="英文名称：" prop="name">
-						<Input v-model="coinInformation.name"></Input>
+						<Input v-model.trim="coinInformation.name"></Input>
 					</FormItem>
 					<FormItem label="货币单位：" prop="unit">
-						<Input v-model="coinInformation.unit"></Input>
+						<Input v-model.trim="coinInformation.unit"></Input>
 					</FormItem>
 					<FormItem label="交易手续费率（%）：" prop="jyRate">
-						<Input v-model="coinInformation.jyRate"></Input>
+						<Input v-model.trim="coinInformation.jyRate"></Input>
 					</FormItem>
 					<FormItem label="卖出广告最低发布数量：" prop="sellMinAmount">
-						<Input v-model="coinInformation.sellMinAmount"></Input>
+						<Input v-model.trim="coinInformation.sellMinAmount"></Input>
 					</FormItem>
 					<FormItem label="买入广告最低发布数量：" prop="buyMinAmount">
-						<Input v-model="coinInformation.buyMinAmount"></Input>
+						<Input v-model.trim="coinInformation.buyMinAmount"></Input>
 					</FormItem>
 					<FormItem label="状态：" prop="status">
 						<i-switch v-model="switchStatus" size="large">

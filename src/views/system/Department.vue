@@ -21,8 +21,8 @@
           title="添加部门"
           @on-ok="addDepart">
 
-          <p><span>部门名称 <i>*</i>：</span><Input v-model="departName"></Input></p>
-          <p><span>领导ID：</span><Input v-model="leaderID"></Input></p>
+          <p><span>部门名称 <i>*</i>：</span><Input v-model.trim="departName"></Input></p>
+          <p><span>领导ID：</span><Input v-model.trim="leaderID"></Input></p>
           <p><span>部门描述：</span><Input type="textarea" v-model="departDscrp"> </Input></p>
 
         </Modal>
@@ -44,8 +44,8 @@
           @on-ok="updateDepart"
           @on-cancel="$Message.info('已取消！')">
 
-          <p><span><em>领</em>导ID：</span><Input v-model="departmentDetail.leaderId"></Input></p>
-          <p><span><em>部</em>门：</span><Input v-model="departmentDetail.name"></Input></p>
+          <p><span><em>领</em>导ID：</span><Input v-model.trim="departmentDetail.leaderId"></Input></p>
+          <p><span><em>部</em>门：</span><Input v-model.trim="departmentDetail.name"></Input></p>
           <p><span>更新时间：</span><Input disabled v-model="departmentDetail.updateTime"></Input></p>
           <p><span>创建时间：</span><Input disabled v-model="departmentDetail.createTime"></Input></p>
           <p><span><em>备</em>注：</span><Input type="textarea" v-model="departmentDetail.remark"></Input></p>

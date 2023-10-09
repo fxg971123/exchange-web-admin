@@ -40,13 +40,13 @@
           <ul>
             <li><span><i>*</i> 交易对：</span>
               <p>
-                <Input v-model="fixSymbol" disabled></Input>
+                <Input v-model.trim="fixSymbol" disabled></Input>
                 <span>{{ }}</span>
               </p>
             </li>
 
             <li><span><i>*</i> 手续费：</span>
-                <p><Input v-model="fee"
+                <p><Input v-model.trim="fee"
                  :class="{'errorFormatBorder': feeClass}"
                   @on-change="checkFee(fee)"></Input>
                 </p>
@@ -112,7 +112,7 @@
               </p>
             </li>
             <li><span><i>*</i> 排序：</span>
-              <p><Input v-model="fixSort"
+              <p><Input v-model.trim="fixSort"
                         :class="{'errorFormatBorder': sortClass}"
                         @on-change="checksort(fixSort)" placeholder="例：5，须大于4(必须)"></Input>
               </p>
@@ -120,11 +120,11 @@
             </li>
 
             <li><span><i>*</i> 最高买单价：</span>
-                <p><Input v-model="fixMaxBuyPrice"></Input>
+                <p><Input v-model.trim="fixMaxBuyPrice"></Input>
                 </p>
             </li>
             <li><span><i>*</i> 最小下单额：</span>
-                <p><Input v-model="fixMinTurnover"></Input>
+                <p><Input v-model.trim="fixMinTurnover"></Input>
                 </p>
             </li>
           </ul>
@@ -142,14 +142,14 @@
               <ul>
                 <li><span><i>*</i> 交易对：</span>
                   <p>
-                    <Input v-model="symbol"
+                    <Input v-model.trim="symbol"
                            :class="{'errorFormatBorder': checkSymbolClass}"
                            @on-change="checkPair(symbol)" placeholder="例: BTC/USDT(必须)"></Input>
                   </p>
                   <em v-show="checkSymbolClass">格式不正确</em>
                 </li>
                 <li><span><i>*</i> 交易币种：</span>
-                  <p><Input v-model="coinSymbol"
+                  <p><Input v-model.trim="coinSymbol"
                             :class="{'errorFormatBorder': coinSymbolClass}"
                             @on-change="checkCoinSymbol(coinSymbol)"  placeholder="例: BTC(必须)"></Input>
                   </p>
@@ -157,14 +157,14 @@
                 </li>
 
                 <li><span><i>*</i> 结算币种：</span>
-                  <p><Input v-model="baseSymbol"
+                  <p><Input v-model.trim="baseSymbol"
                             :class="{'errorFormatBorder': baseSymbolClass}"
                             @on-change="checkbaseSymbol(baseSymbol)" placeholder="例: USDT(必须)"></Input>
                   </p>
                    <em v-show="baseSymbolClass">格式不正确</em>
                 </li>
                 <li><span><i>*</i> 手续费：</span>
-                  <p><Input v-model="fee"
+                  <p><Input v-model.trim="fee"
                    :class="{'errorFormatBorder': feeClass}"
                     @on-change="checkFee(fee)" placeholder="例: 0.001(必须)"></Input>
                   </p>
@@ -172,7 +172,7 @@
                 </li>
 
                 <li><span><i>*</i> 币种精度：</span>
-                  <p><Input v-model="coinScale"
+                  <p><Input v-model.trim="coinScale"
                             :class="{'errorFormatBorder': coinScaleClass}"
                             @on-change="checkCoinScale(coinScale)" placeholder="例: 4(必须)"></Input>
                   </p>
@@ -181,56 +181,56 @@
                 </li>
 
                 <li><span><i>*</i> 基币小数精度：</span>
-                  <p><Input v-model="baseCoinScale"
+                  <p><Input v-model.trim="baseCoinScale"
                             :class="{'errorFormatBorder': baseCoinScaleClass}"
                             @on-change="checkbaseCoinScale(baseCoinScale)" placeholder="例: 6(必须)"></Input>
                   </p>
                   <em v-show="baseCoinScaleClass">格式不正确</em>
                 </li>
                 <li><span><i>*</i> 最低卖单价：</span>
-                  <p><Input v-model="minSellPrice"
+                  <p><Input v-model.trim="minSellPrice"
                             :class="{'errorFormatBorder': minSellPriceClass}"
                             @on-change="checkminSellPrice(minSellPrice)" placeholder="不限制: 0.00000000(必须)"></Input>
                   </p>
                   <em v-show="minSellPriceClass">格式不正确</em>
                 </li>
                 <li><span><i>*</i> 最高买单价：</span>
-                  <p><Input v-model="maxBuyPrice"
+                  <p><Input v-model.trim="maxBuyPrice"
                             :class="{'errorFormatBorder': maxBuyPriceClass}"
                             @on-change="checkmaxBuyPrice(maxBuyPrice)" placeholder="不限制: 0.00000000(必须)"></Input>
                   </p>
                   <em v-show="maxBuyPriceClass">格式不正确</em>
                 </li>
                 <li><span><i>*</i> 最小下单量：</span>
-                  <p><Input v-model="minVolume"
+                  <p><Input v-model.trim="minVolume"
                             :class="{'errorFormatBorder': minVolumeClass}"
                             @on-change="checkminVolume(minVolume)" placeholder="不限制: 0.00000000(必须)"></Input>
                   </p>
                   <em v-show="minVolumeClass">格式不正确</em>
                 </li>
                 <li><span><i>*</i> 最大下单量：</span>
-                  <p><Input v-model="maxVolume"
+                  <p><Input v-model.trim="maxVolume"
                             :class="{'errorFormatBorder': maxVolumeClass}"
                             @on-change="checkmaxVolume(maxVolume)" placeholder="不限制: 0.00000000(必须)"></Input>
                   </p>
                   <em v-show="maxVolumeClass">格式不正确</em>
                 </li>
                 <li><span><i>*</i> 交易区：</span>
-                  <p><Input v-model="zone"
+                  <p><Input v-model.trim="zone"
                             :class="{'errorFormatBorder': zoneClass}"
                             @on-change="checkzone(zone)" placeholder="0:主板, 1:创新板(必须)"></Input>
                   </p>
                   <em v-show="zoneClass">格式不正确</em>
                 </li>
                 <li><span><i>*</i>最小挂单额：</span>
-                  <p><Input v-model="minTurnover"
+                  <p><Input v-model.trim="minTurnover"
                             :class="{'errorFormatBorder': minTurnoverClass}"
                             @on-change="checkminTurnover(minTurnover)" placeholder="不限制: 0.00000000(必须)"></Input>
                   </p>
                   <em v-show="minTurnoverClass">格式不正确</em>
                 </li>
                 <li><span><i>*</i>排序：</span>
-                  <p><Input v-model="sort"
+                  <p><Input v-model.trim="sort"
                             :class="{'errorFormatBorder': sortClass}"
                             @on-change="checksort(sort)" placeholder="例：5，须大于4(必须)"></Input>
                   </p>
@@ -270,7 +270,7 @@
                     <em>抢购发行与分摊发行都需要设置</em>
                   </li>
                   <li><span>分摊发行价：</span>
-                    <p><Input v-model="publishPrice"
+                    <p><Input v-model.trim="publishPrice"
                                style="width: 200px"
                               :class="{'errorFormatBorder': publishPriceClass}"
                               @on-change="checkpublishPrice(publishPrice)" placeholder="不限制: 0.00000000(必须)"></Input>
@@ -278,7 +278,7 @@
                     <em>抢购发行与分摊发行都需要设置</em>
                   </li>
                   <li><span>发行数量：</span>
-                    <p><Input v-model="publishAmount"
+                    <p><Input v-model.trim="publishAmount"
                                style="width: 200px" placeholder="不限制: 10000.00000000(必须)"></Input>
                     </p>
                     <em>抢购发行与分摊发行都需要设置</em>
@@ -402,7 +402,7 @@
 					width="350"
 					@on-cancle="loginPW = ''"
 					@on-ok="confirmLoginPass">
-					<Input v-model="loginPW" type="password" placeholder="请输入登录密码"></Input>
+					<Input v-model.trim="loginPW" type="password" placeholder="请输入登录密码"></Input>
 			 </Modal>
 
        <Modal
@@ -479,7 +479,7 @@
           <ul>
             <li><span><i>*</i>交易对：</span>
               <p>
-                <Input v-model="robotParams.symbol" disabled></Input>
+                <Input v-model.trim="robotParams.symbol" disabled></Input>
                 <span>{{ }}</span>
               </p>
             </li>
@@ -493,59 +493,59 @@
             </li>
             <li>
                 <span><i>*</i>最低交易量：</span>
-                <p> <Input v-model="robotParams.startAmount"></Input> </p>
+                <p> <Input v-model.trim="robotParams.startAmount"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(1%)：</span>
-                <p> <Input v-model="robotParams.randRange0"></Input> </p>
+                <p> <Input v-model.trim="robotParams.randRange0"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(9%)：</span>
-                <p> <Input v-model="robotParams.randRange1"></Input> </p>
+                <p> <Input v-model.trim="robotParams.randRange1"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(20%)：</span>
-                <p> <Input v-model="robotParams.randRange2"></Input> </p>
+                <p> <Input v-model.trim="robotParams.randRange2"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(20%)：</span>
-                <p> <Input v-model="robotParams.randRange3"></Input> </p>
+                <p> <Input v-model.trim="robotParams.randRange3"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(20%)：</span>
-                <p> <Input v-model="robotParams.randRange4"></Input> </p>
+                <p> <Input v-model.trim="robotParams.randRange4"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(20%)：</span>
-                <p> <Input v-model="robotParams.randRange5"></Input> </p>
+                <p> <Input v-model.trim="robotParams.randRange5"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(10%)：</span>
-                <p> <Input v-model="robotParams.randRange6"></Input> </p>
+                <p> <Input v-model.trim="robotParams.randRange6"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>价格精度要求：</span>
-                <p> <Input v-model="robotParams.scale"></Input> </p>
+                <p> <Input v-model.trim="robotParams.scale"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>数量精度要求：</span>
-                <p> <Input v-model="robotParams.amountScale"></Input> </p>
+                <p> <Input v-model.trim="robotParams.amountScale"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>买卖盘最高差价：</span>
-                <p> <Input v-model="robotParams.maxSubPrice"></Input> </p>
+                <p> <Input v-model.trim="robotParams.maxSubPrice"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>初始订单数(>24)：</span>
-                <p> <Input v-model="robotParams.initOrderCount"></Input> </p>
+                <p> <Input v-model.trim="robotParams.initOrderCount"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>价格变化步长(%)：</span>
-                <p> <Input v-model="robotParams.priceStepRate"></Input> </p>
+                <p> <Input v-model.trim="robotParams.priceStepRate"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>下单时间间隔(毫秒)：</span>
-                <p> <Input v-model="robotParams.runTime"></Input> </p>
+                <p> <Input v-model.trim="robotParams.runTime"></Input> </p>
             </li>
           </ul>
       </Modal>
@@ -559,7 +559,7 @@
           <ul>
             <li><span><i>*</i>交易对：</span>
               <p>
-                <Input v-model="priceRobotParams.symbol" disabled></Input>
+                <Input v-model.trim="priceRobotParams.symbol" disabled></Input>
                 <span>{{ }}</span>
               </p>
             </li>
@@ -574,63 +574,63 @@
 
             <li>
                 <span><i>*</i>固定价格：</span>
-                <p> <Input v-model="priceRobotParams.price"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.price"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>最低交易量：</span>
-                <p> <Input v-model="priceRobotParams.startAmount"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.startAmount"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(1%)：</span>
-                <p> <Input v-model="priceRobotParams.randRange0"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.randRange0"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(9%)：</span>
-                <p> <Input v-model="priceRobotParams.randRange1"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.randRange1"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(20%)：</span>
-                <p> <Input v-model="priceRobotParams.randRange2"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.randRange2"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(20%)：</span>
-                <p> <Input v-model="priceRobotParams.randRange3"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.randRange3"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(20%)：</span>
-                <p> <Input v-model="priceRobotParams.randRange4"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.randRange4"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(20%)：</span>
-                <p> <Input v-model="priceRobotParams.randRange5"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.randRange5"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>交易量随机因子(10%)：</span>
-                <p> <Input v-model="priceRobotParams.randRange6"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.randRange6"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>价格精度要求：</span>
-                <p> <Input v-model="priceRobotParams.scale"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.scale"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>数量精度要求：</span>
-                <p> <Input v-model="priceRobotParams.amountScale"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.amountScale"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>买卖盘最高差价：</span>
-                <p> <Input v-model="priceRobotParams.maxSubPrice"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.maxSubPrice"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>初始订单数(>24)：</span>
-                <p> <Input v-model="priceRobotParams.initOrderCount"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.initOrderCount"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>价格变化步长(%)：</span>
-                <p> <Input v-model="priceRobotParams.priceStepRate"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.priceStepRate"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>下单时间间隔(毫秒)：</span>
-                <p> <Input v-model="priceRobotParams.runTime"></Input> </p>
+                <p> <Input v-model.trim="priceRobotParams.runTime"></Input> </p>
             </li>
           </ul>
       </Modal>

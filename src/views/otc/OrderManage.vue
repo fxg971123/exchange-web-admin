@@ -216,18 +216,18 @@ export default {
       showModal: false,
       saveLoading: false,
       columnsList: [
-        {
+        /* {
           type: "selection",
           width: 60,
-        },
+        }, */
         {
           title: "订单编号",
-          width: 90,
+        //   width: 90,
           key: "orderSn"
         },
         {
           title: "交易时间",
-          width: 105,
+          width: 100,
 					key: "createTime",
 					sortable: 'custom'
         },

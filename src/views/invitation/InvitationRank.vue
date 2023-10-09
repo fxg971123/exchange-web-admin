@@ -43,25 +43,25 @@
           <ul>
             <li><span><i>*</i>ID：</span>
               <p>
-                <Input v-model="detailRank.id" disabled></Input>
+                <Input v-model.trim="detailRank.id" disabled></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li>
                 <span><i>*</i>返佣折合USDT：</span>
-                <p> <Input v-model="detailRank.estimatedReward"></Input> </p>
+                <p> <Input v-model.trim="detailRank.estimatedReward"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>额外奖励(USDT)：</span>
-                <p> <Input v-model="detailRank.extraReward"></Input> </p>
+                <p> <Input v-model.trim="detailRank.extraReward"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>一级邀请人数：</span>
-                <p> <Input v-model="detailRank.levelOne"></Input> </p>
+                <p> <Input v-model.trim="detailRank.levelOne"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>二级邀请人数：</span>
-                <p> <Input v-model="detailRank.levelTwo"></Input> </p>
+                <p> <Input v-model.trim="detailRank.levelTwo"></Input> </p>
             </li>
           </ul>
       </Modal>

@@ -99,11 +99,11 @@ export default {
       totalNum: null,
 
       columns_first: [
-        {
+        /* {
 					type: 'selection',
 					width: 60,
 					align: 'center',
-        },
+        }, */
         {
           title: "编号",
           key: "id",

@@ -56,18 +56,18 @@
                 >
                     <FormItem label="用户姓名：" prop="name">
                         <div style="display:inline-block;width:300px;">
-                            <Input v-model="userForm.name" ></Input>
+                            <Input v-model.trim="userForm.name" ></Input>
                         </div>
                     </FormItem>
                     <FormItem label="用户手机：" prop="cellphone" >
                         <div style="display:inline-block;width:204px;">
-                            <Input v-model="userForm.cellphone" @on-keydown="hasChangePhone"></Input>
+                            <Input v-model.trim="userForm.cellphone" @on-keydown="hasChangePhone"></Input>
                         </div>
                         <div style="display:inline-block;position:relative;">
                             <Button @click="getIdentifyCode" :disabled="canGetIdentifyCode">{{ gettingIdentifyCodeBtnContent }}</Button>
                             <div class="own-space-input-identifycode-con" v-if="inputCodeVisible">
                                 <div style="background-color:white;z-index:110;margin:10px;">
-                                    <Input v-model="securityCode" placeholder="请填写短信验证码" ></Input>
+                                    <Input v-model.trim="securityCode" placeholder="请填写短信验证码" ></Input>
                                     <div style="margin-top:10px;text-align:right">
                                         <Button type="ghost" @click="cancelInputCodeBox">取消</Button>
                                         <Button type="primary" @click="submitCode" :loading="checkIdentifyCodeLoading">确定</Button>
@@ -96,13 +96,13 @@
             <h3 slot="header" style="color:#2D8CF0">修改密码</h3>
             <Form ref="editPasswordForm" :model="editPasswordForm" :label-width="100" label-position="right" :rules="passwordValidate">
                 <FormItem label="原密码" prop="oldPass" :error="oldPassError">
-                    <Input v-model="editPasswordForm.oldPass" placeholder="请输入现在使用的密码" ></Input>
+                    <Input v-model.trim="editPasswordForm.oldPass" placeholder="请输入现在使用的密码" ></Input>
                 </FormItem>
                 <FormItem label="新密码" prop="newPass">
-                    <Input v-model="editPasswordForm.newPass" placeholder="请输入新密码，至少6位字符" ></Input>
+                    <Input v-model.trim="editPasswordForm.newPass" placeholder="请输入新密码，至少6位字符" ></Input>
                 </FormItem>
                 <FormItem label="确认新密码" prop="rePass">
-                    <Input v-model="editPasswordForm.rePass" placeholder="请再次输入新密码" ></Input>
+                    <Input v-model.trim="editPasswordForm.rePass" placeholder="请再次输入新密码" ></Input>
                 </FormItem>
             </Form>
             <div slot="footer">

@@ -698,3 +698,5 @@ export const exportMemberRecord = (data) => postExportConfig('member/export/memb
 export const exportChargeAwardRecord = (data) => postExportConfig('member/export/chargeAwardRecordExport',data)
 // 团队手续费奖励导出
 export const exportGroupChargeAward = (data) => postExportConfig('member/export/groupChargeAwardExport',data)
+//会员管理导出
+export const exportMemberList = (data) => postExportConfig('admin/member/export',data)

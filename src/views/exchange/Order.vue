@@ -12,8 +12,8 @@
       </div>
       <Row class="priceSectionWrapper clearfix" >
 
-        <div class="priceSection">价格区间：<Input v-model="filterSearch.minPrice"></Input> ~
-          <Input v-model="filterSearch.maxPrice"></Input>
+        <div class="priceSection">价格区间：<Input v-model.trim="filterSearch.minPrice"></Input> ~
+          <Input v-model.trim="filterSearch.maxPrice"></Input>
         </div>
 
         <div class="orderStatus">
@@ -218,7 +218,7 @@ export default {
         },
         {
           title: "挂单时间",
-          width: 100,
+          width: 160,
           render: (h, obj) => {
             let formatTime = dtime(obj.row.time).format('YYYY-MM-DD HH:mm:ss')
             return h('span',{},formatTime)

@@ -54,6 +54,7 @@ axios.interceptors.response.use((response) => {
     return response;
 });
 
+
 Date.prototype.Format = function(fmt){
     var o = {
         "M+": this.getMonth()+1,

@@ -46,10 +46,10 @@
 				:label-width="50" 
 				:rules="validateForm">
 				<FormItem label="键：" prop="bond">
-					<Input v-model="formObj.bond"></Input>
+					<Input v-model.trim="formObj.bond"></Input>
 				</FormItem>
 				<FormItem label="值：" prop="value">
-					<Input v-model="formObj.value"></Input>
+					<Input v-model.trim="formObj.value"></Input>
 				</FormItem>
 				<FormItem label="备注：">
 					<Input type="textarea" v-model="formObj.comment"></Input>

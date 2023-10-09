@@ -27,7 +27,7 @@
         </p>
 
         <p> <span>标题<i>*</i>：</span>
-          <Input v-model="manageTitle" ></Input>
+          <Input v-model.trim="manageTitle" ></Input>
         </p>
         <div><span>分类<i>*</i>：</span>
           <Select v-model="manageClass" style="width:200px">
@@ -38,10 +38,10 @@
         </div>
 
         <p><span>图片地址<i>*</i>：</span>
-          <Input v-model="imgUrl" ></Input>
+          <Input v-model.trim="imgUrl" ></Input>
         </p>
         <p><span>排序：</span>
-          <Input v-model="sort" ></Input>
+          <Input v-model.trim="sort" ></Input>
         </p>
         <div>语言：
           <RadioGroup v-model="lang">

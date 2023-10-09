@@ -42,43 +42,43 @@
           <ul>
             <li><span><i>*</i>交易对：</span>
               <p>
-                <Input v-model="optionCoin.symbol" :disabled="!isAdd"></Input>
+                <Input v-model.trim="optionCoin.symbol" :disabled="!isAdd"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>合约名称：</span>
               <p>
-                <Input v-model="optionCoin.name"></Input>
+                <Input v-model.trim="optionCoin.name"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>币种：</span>
               <p>
-                <Input v-model="optionCoin.coinSymbol" :disabled="!isAdd"></Input>
+                <Input v-model.trim="optionCoin.coinSymbol" :disabled="!isAdd"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>基础量价币种：</span>
               <p>
-                <Input v-model="optionCoin.baseSymbol" :disabled="!isAdd"></Input>
+                <Input v-model.trim="optionCoin.baseSymbol" :disabled="!isAdd"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>排序：</span>
               <p>
-                <Input v-model="optionCoin.sort"></Input>
+                <Input v-model.trim="optionCoin.sort"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>交易币小数精度：</span>
               <p>
-                <Input v-model="optionCoin.coinScale"></Input>
+                <Input v-model.trim="optionCoin.coinScale"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>基币小数精度：</span>
               <p>
-                <Input v-model="optionCoin.baseCoinScale"></Input>
+                <Input v-model.trim="optionCoin.baseCoinScale"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
@@ -124,35 +124,35 @@
             </li>
             <li>
                 <span><i>*</i>允许投注金额：</span>
-                <p> <Input v-model="optionCoin.amount"></Input> </p>
+                <p> <Input v-model.trim="optionCoin.amount"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>开仓手续费：</span>
-                <p> <Input v-model="optionCoin.feePercent"></Input> </p>
+                <p> <Input v-model.trim="optionCoin.feePercent"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>赢家抽水费：</span>
-                <p> <Input v-model="optionCoin.winFeePercent"></Input> </p>
+                <p> <Input v-model.trim="optionCoin.winFeePercent"></Input> </p>
             </li>
 			<li>
 			    <span><i>*</i>赔率：</span>
-			    <p> <Input v-model="optionCoin.oods"></Input> </p>
+			    <p> <Input v-model.trim="optionCoin.oods"></Input> </p>
 			</li>
             <!-- <li>
                 <span><i>*</i>初始买涨奖池金额：</span>
-                <p> <Input v-model="optionCoin.initBuyReward"></Input> </p>
+                <p> <Input v-model.trim="optionCoin.initBuyReward"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>初始买跌奖池金额：</span>
-                <p> <Input v-model="optionCoin.initSellReward"></Input> </p>
+                <p> <Input v-model.trim="optionCoin.initSellReward"></Input> </p>
             </li> -->
             <li>
                 <span><i>*</i>投注时间周期(秒)：</span>
-                <p> <Input v-model="optionCoin.openTimeGap"></Input> </p>
+                <p> <Input v-model.trim="optionCoin.openTimeGap"></Input> </p>
             </li>
             <li>
                 <span><i>*</i>开奖时间周期(秒)：</span>
-                <p> <Input v-model="optionCoin.closeTimeGap"></Input> </p>
+                <p> <Input v-model.trim="optionCoin.closeTimeGap"></Input> </p>
             </li>
           </ul>
       </Modal>
@@ -198,7 +198,7 @@ export default {
       columns: [
         {
           title: "交易对",
-          width: 100,
+          width: 110,
           key: "symbol",
           render: (h, params) => {
             const row = params.row;
@@ -214,6 +214,7 @@ export default {
         {
           title: '当前期数',
           key:"maxOptionNo",
+          width:110,
           render: (h, params) => {
             const row = params.row;
             return h("div", {}, [
@@ -324,7 +325,7 @@ export default {
         {
           title: "允许投注金额",
           key: "amount",
-          width: 220,
+          width: 250,
           render: (h, params) => {
             const row = params.row;
             return h("div", {
@@ -339,6 +340,7 @@ export default {
         {
           title: '开仓手续费',
           key:"feePercent",
+          minWidth:75,
           render: (h, params) => {
             const row = params.row;
             return h("div", {}, [
@@ -349,6 +351,7 @@ export default {
         {
           title: '赢家抽水',
           key:"winFeePercent",
+          minWidth:65,
           render: (h, params) => {
             const row = params.row;
             return h("div", {}, [
@@ -358,7 +361,8 @@ export default {
         },
         {
           title: '赔率',
-          key:"oods"
+          key:"oods",
+          minWidth:65,
         },
         // {
         //   title: '初始买跌奖池',
@@ -366,10 +370,12 @@ export default {
         // },
         {
           title: '盈利',
-          key:"totalProfit"
+          key:"totalProfit",
+          minWidth:65,
         },
         {
           title: '下注时间',
+          minWidth:65,
           key:"openTimeGap",
           render: (h, params) => {
             const row = params.row;
@@ -381,6 +387,7 @@ export default {
         {
           title: '开奖时间',
           key:"closeTimeGap",
+          minWidth:65,
           render: (h, params) => {
             const row = params.row;
             return h("div", {}, [
@@ -393,6 +400,7 @@ export default {
           key: "id",
           align: 'center',
           fixed: 'right',
+          width:100,
           render: (h, params) => {
             return h("div", [
               h(
@@ -409,7 +417,7 @@ export default {
                         coinSymbol: params.row.coinSymbol,
                         baseSymbol: params.row.baseSymbol,
                         sort: params.row.sort,
-						oods: params.row.oods,
+                        oods: params.row.oods,
                         coinScale: params.row.coinScale,
                         baseCoinScale: params.row.baseCoinScale,
                         enable: params.row.enable+"",

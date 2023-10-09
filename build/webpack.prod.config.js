@@ -60,7 +60,7 @@ module.exports = merge(webpackBaseConfig, {
         //       drop_debugger: true
         //      }
         // }),
-        new CopyWebpackPlugin([{
+       /*  new CopyWebpackPlugin([{
                 from: 'favicon.ico'
             },
             {
@@ -74,7 +74,7 @@ module.exports = merge(webpackBaseConfig, {
             ignore: [
                 // 'text-editor.vue'
             ]
-        }),
+        }), */
         new HtmlWebpackPlugin({
             title: '管理后台 - ELVESBT|全球数字资产交易平台',
             favicon: './favicon.ico',

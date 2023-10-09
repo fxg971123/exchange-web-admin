@@ -15,57 +15,57 @@
           <div class="poptip">
             <Poptip trigger="hover" content="请输入用户名、邮箱、手机或姓名搜索" placement="bottom-start">
               <Input placeholder="请输入用户名、邮箱、手机或姓名搜索" 
-                    v-model="filterSearch.account"/> 
+                    v-model.trim="filterSearch.account"/> 
             </Poptip>
           </div>
 
 					<div class="poptip">
             <Poptip trigger="hover" content="请输入钱包地址搜索" placement="bottom-start">
               <Input placeholder="请输入钱包地址搜索" 
-                    v-model="filterSearch.walletAddress"/> 
+                    v-model.trim="filterSearch.walletAddress"/> 
             </Poptip>
           </div>
 
 					<div class="poptip">
             <Poptip trigger="hover" content="请输入币种搜索" placement="bottom-start">
               <Input placeholder="请输入币种搜索" 
-                    v-model="filterSearch.unit"/> 
+                    v-model.trim="filterSearch.unit"/> 
             </Poptip>
           </div>
 					<br>
 					<div class="poptip range">
             <Poptip trigger="hover" content="请输入可用币最低数搜索" placement="bottom-start">
               <Input placeholder="可用币最低数搜索" 
-                    v-model="filterSearch.minBalance"/> 
+                    v-model.trim="filterSearch.minBalance"/> 
             </Poptip>
 						~
 						<Poptip trigger="hover" content="请输入可用币最高数搜索" placement="bottom-start">
               <Input placeholder="可用币最高数搜索" 
-                    v-model="filterSearch.maxBalance"/> 
+                    v-model.trim="filterSearch.maxBalance"/> 
             </Poptip>
           </div>
 
 						<div class="poptip range">
             <Poptip trigger="hover" content="请输入冻结币最低数搜索" placement="bottom-start">
               <Input placeholder="冻结币最低数搜索" 
-                    v-model="filterSearch.minFrozenBalance"/> 
+                    v-model.trim="filterSearch.minFrozenBalance"/> 
             </Poptip>
 						~
 						<Poptip trigger="hover" content="请输入冻结币最高数搜索" placement="bottom-start">
               <Input placeholder="冻结币最高数搜索" 
-                    v-model="filterSearch.maxFrozenBalance"/> 
+                    v-model.trim="filterSearch.maxFrozenBalance"/> 
             </Poptip>
           </div>
 
 						<div class="poptip range">
             <Poptip trigger="hover" content="请输入总币最低数搜索" placement="bottom-start">
               <Input placeholder="总币最低数搜索" 
-                    v-model="filterSearch.minAllBalance"/> 
+                    v-model.trim="filterSearch.minAllBalance"/> 
             </Poptip>
 						~
 						<Poptip trigger="hover" content="请输入总币最高数搜索" placement="bottom-start">
               <Input placeholder="总币最高数搜索" 
-                    v-model="filterSearch.maxAllBalance"/> 
+                    v-model.trim="filterSearch.maxAllBalance"/> 
             </Poptip>
           </div>
 

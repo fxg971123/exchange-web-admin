@@ -60,7 +60,7 @@
 					</FormItem>
 
 					<FormItem label="数量：">
-						<Input v-model="businessAuth.amount"></Input>
+						<Input v-model.trim="businessAuth.amount"></Input>
 					</FormItem>
 
 

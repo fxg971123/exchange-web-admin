@@ -182,7 +182,6 @@ export default {
         {
           title: "申诉时间",
           key: "createTime",
-					width: 108,
 					sortable: 'custom'
         },
         {

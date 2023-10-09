@@ -68,7 +68,7 @@
           </h3>
           <p>币种：<span>{{ payUnit }}</span></p>
           <p>充值地址：<span>{{ payAddress }}</span></p>
-          <p>充值数量：<span><Input v-model="payAmount"></Input></span></p>
+          <p>充值数量：<span><Input v-model.trim="payAmount"></Input></span></p>
         </Modal>
 
         <Modal
@@ -90,7 +90,7 @@
                 </Option>
               </Select>
           </p>
-          <p>锁仓数量：<br><Input v-model="lockAmount"></Input></p>
+          <p>锁仓数量：<br><Input v-model.trim="lockAmount"></Input></p>
         </Modal>
       </Card>
     </Row>

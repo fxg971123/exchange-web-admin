@@ -40,7 +40,7 @@
           <ul>
             <li><span><i>*</i>交易对：</span>
               <p>
-                <Input v-model="contractCoin.symbol" :disabled="!isAdd"></Input>
+                <Input v-model.trim="contractCoin.symbol" :disabled="!isAdd"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
@@ -62,25 +62,25 @@
             </li>
             <li><span><i>*</i>合约名称：</span>
               <p>
-                <Input v-model="contractCoin.name"></Input>
+                <Input v-model.trim="contractCoin.name"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>币种：</span>
               <p>
-                <Input v-model="contractCoin.coinSymbol" :disabled="!isAdd"></Input>
+                <Input v-model.trim="contractCoin.coinSymbol" :disabled="!isAdd"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>基础量价币种：</span>
               <p>
-                <Input v-model="contractCoin.baseSymbol" :disabled="!isAdd"></Input>
+                <Input v-model.trim="contractCoin.baseSymbol" :disabled="!isAdd"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>合约面值：</span>
               <p>
-                <Input v-model="contractCoin.shareNumber" :disabled="!isAdd"></Input>
+                <Input v-model.trim="contractCoin.shareNumber" :disabled="!isAdd"></Input>
                 <span>{{ }}</span>
                 <p style="color:#FF0000;text-align: right;">新建币种后，不可更改，会影响合约盈亏计算</p>
               </p>
@@ -95,13 +95,13 @@
             </li>
             <li><span><i>*</i>杠杆倍数：</span>
               <p>
-                <Input v-model="contractCoin.leverage"></Input>
+                <Input v-model.trim="contractCoin.leverage"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>维持保证金率：</span>
               <p>
-                <Input v-model="contractCoin.maintenanceMarginRate"></Input>
+                <Input v-model.trim="contractCoin.maintenanceMarginRate"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
@@ -155,37 +155,37 @@
             </li>
             <li><span><i>*</i>开仓手续费率：</span>
               <p>
-                <Input v-model="contractCoin.openFee"></Input>
+                <Input v-model.trim="contractCoin.openFee"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>平仓手续费率：</span>
               <p>
-                <Input v-model="contractCoin.closeFee"></Input>
+                <Input v-model.trim="contractCoin.closeFee"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>资金费率结算周期（小时）：</span>
               <p>
-                <Input v-model="contractCoin.intervalHour"></Input>
+                <Input v-model.trim="contractCoin.intervalHour"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>资金费率：</span>
               <p>
-                <Input v-model="contractCoin.feePercent"></Input>
+                <Input v-model.trim="contractCoin.feePercent"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>最小张数：</span>
               <p>
-                <Input v-model="contractCoin.minShare"></Input>
+                <Input v-model.trim="contractCoin.minShare"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>最大张数：</span>
               <p>
-                <Input v-model="contractCoin.maxShare"></Input>
+                <Input v-model.trim="contractCoin.maxShare"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
@@ -199,31 +199,31 @@
             </li>
             <li><span><i>*</i>滑点：</span>
               <p>
-                <Input v-model="contractCoin.spread"></Input>
+                <Input v-model.trim="contractCoin.spread"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>基币小数精度：</span>
               <p>
-                <Input v-model="contractCoin.baseCoinScale"></Input>
+                <Input v-model.trim="contractCoin.baseCoinScale"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>币种小数精度：</span>
               <p>
-                <Input v-model="contractCoin.coinScale"></Input>
+                <Input v-model.trim="contractCoin.coinScale"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>Taker费率：</span>
               <p>
-                <Input v-model="contractCoin.takerFee"></Input>
+                <Input v-model.trim="contractCoin.takerFee"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
             <li><span><i>*</i>Maker费率：</span>
               <p>
-                <Input v-model="contractCoin.makerFee"></Input>
+                <Input v-model.trim="contractCoin.makerFee"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
@@ -237,7 +237,7 @@
             </li>
             <li><span><i>*</i>排序：</span>
               <p>
-                <Input v-model="contractCoin.sort"></Input>
+                <Input v-model.trim="contractCoin.sort"></Input>
                 <span>{{ }}</span>
               </p>
             </li>
@@ -297,7 +297,7 @@ export default {
       columns: [
         {
           title: "合约交易对",
-          width: 100,
+          width: 105,
           key: "symbol",
           render: (h, params) => {
             const row = params.row;
@@ -536,12 +536,12 @@ export default {
         },
         {
           title: '最大张数',
-          width:65,
+          width:100,
           key:"maxShare"
         },
         {
           title: '开仓手续费',
-          width:75,
+          minWidth:75,
           key:"openFee",
           render: (h, params) => {
             const row = params.row;
@@ -550,7 +550,7 @@ export default {
         },
         {
           title: '平仓手续费',
-          width:75,
+          minWidth:75,
           key:"closeFee",
           render: (h, params) => {
             const row = params.row;
@@ -559,7 +559,7 @@ export default {
         },
         {
           title: '平台盈利',
-          width:135,
+          width:140,
           key:"totalProfit",
           render: (h, params) => {
             const row = params.row;

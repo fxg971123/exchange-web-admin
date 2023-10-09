@@ -56,19 +56,19 @@
 		@on-ok="showNeedCode">
 		<Form :model="coinForm" :label-width="80" class='form'>
 			<FormItem label="中文名称:">
-				<Input v-model="coinForm.nameCn"></Input>
+				<Input v-model.trim="coinForm.nameCn"></Input>
 			</FormItem>
 			<FormItem label="英文名称:">
-				<Input v-model="coinForm.name"></Input>
+				<Input v-model.trim="coinForm.name"></Input>
 			</FormItem>
 			<FormItem label="币种单位:">
-				<Input v-model="coinForm.unit" placeHolder="如BTC、ETH等。该字段很重要，设定后不能修改。"></Input>
+				<Input v-model.trim="coinForm.unit" placeHolder="如BTC、ETH等。该字段很重要，设定后不能修改。"></Input>
 			</FormItem>
             <FormItem label="币种简介:">
-                <Input v-model="coinForm.information"></Input>
+                <Input v-model.trim="coinForm.information"></Input>
             </FormItem>
             <FormItem label="详情链接:">
-                <Input v-model="coinForm.infolink"></Input>
+                <Input v-model.trim="coinForm.infolink"></Input>
             </FormItem>
             <FormItem label="账户类型:">
                 <RadioGroup v-model="coinForm.accountType">
@@ -82,7 +82,7 @@
             </FormItem>
 
             <FormItem label="充值地址:" v-show="coinForm.accountType==1">
-                <Input v-model="coinForm.depositAddress"></Input>
+                <Input v-model.trim="coinForm.depositAddress"></Input>
             </FormItem>
 			<Row>
 				<Col span="8">
@@ -115,17 +115,17 @@
             </FormItem>
 
             <FormItem label="最小充值数:">
-                <Input v-model="coinForm.minRechargeAmount"></Input>
+                <Input v-model.trim="coinForm.minRechargeAmount"></Input>
             </FormItem>
 			<Row>
 				<Col span="12">
 					<FormItem label="最小手续费:">
-						<Input  v-model="coinForm.minTxFee" ></Input>
+						<Input v-model.trim="coinForm.minTxFee" ></Input>
 					</FormItem>
 				</Col>
 				<Col span="12">
 					<FormItem label="最大手续费:">
-						<Input  v-model="coinForm.maxTxFee" ></Input>
+						<Input v-model.trim="coinForm.maxTxFee" ></Input>
 					</FormItem>
 				</Col>
 			</Row>
@@ -133,12 +133,12 @@
 			<Row>
 				<Col span="12">
 					<FormItem label="最小提币量:">
-						<Input v-model="coinForm.minWithdrawAmount" ></Input>
+						<Input v-model.trim="coinForm.minWithdrawAmount" ></Input>
 					</FormItem>
 				</Col>
 				<Col span="12">
 					<FormItem label="最大提币量:">
-						<Input v-model="coinForm.maxWithdrawAmount" ></Input>
+						<Input v-model.trim="coinForm.maxWithdrawAmount" ></Input>
 					</FormItem>
 				</Col>
 			</Row>
@@ -165,12 +165,12 @@
 			<Row>
 				<Col span="12">
 					<FormItem label="阀值:">
-						<Input v-model="coinForm.withdrawThreshold"></Input>
+						<Input v-model.trim="coinForm.withdrawThreshold"></Input>
 					</FormItem>
 				</Col>
 				<Col span="12">
 					<FormItem label="排序:">
-						<Input v-model="coinForm.sort"></Input>
+						<Input v-model.trim="coinForm.sort"></Input>
 					</FormItem>
 				</Col>
 			</Row>
@@ -178,12 +178,12 @@
 			<Row>
 				<Col span="12">
 					<FormItem label="人民币汇率:">
-						<Input v-model="coinForm.cnyRate"></Input>
+						<Input v-model.trim="coinForm.cnyRate"></Input>
 					</FormItem>
 				</Col>
 				<Col span="12">
 					<FormItem label="美元汇率:">
-						<Input v-model="coinForm.usdRate"></Input>
+						<Input v-model.trim="coinForm.usdRate"></Input>
 					</FormItem>
 				</Col>
 			</Row>
@@ -218,7 +218,7 @@
 				<span>{{ coldWalletForm.unit }}</span>
 			</FormItem>
 			<FormItem label="转入金额：" prop="amount">
-				<Input v-model="coldWalletForm.amount"></Input>
+				<Input v-model.trim="coldWalletForm.amount"></Input>
 				<p class="transferTips">可转入金额：<span>{{ enableTransferCoin }}</span></p>
 			</FormItem>
 
@@ -230,7 +230,7 @@
 			</FormItem>
 
 			<FormItem label="验证码：" prop="code" v-show="needCord">
-				<Input v-model="coldWalletForm.code"></Input>
+				<Input v-model.trim="coldWalletForm.code"></Input>
 			</FormItem>
 
 		</Form>
@@ -355,7 +355,7 @@ export default {
         {
           title: "账户类型",
           key: "accountType",
-          width: 100,
+		  minWidth:100,
           render: (h, obj) => {
             const row = obj.row;
             const aType = row.accountType === 1 ? "账户模式 ☑" : "地址模式 ☐";
@@ -401,7 +401,7 @@ export default {
         {
           title: "提现",
           key: "canWithdraw",
-          width: 60,
+          minWidth: 65,
           render: (h, obj) => {
             const row = obj.row;
             const canWithdraw = row.canWithdraw === 1 ? "是" : "否";
@@ -411,7 +411,7 @@ export default {
         {
           title: "充值",
           key: "canRecharge",
-          width: 60,
+          minWidth: 65,
           render: (h, obj) => {
 						const row = obj.row;
             const canRecharge = row.canRecharge === 1 ? "是" : "否";
@@ -500,12 +500,12 @@ export default {
         {
           title: "冷钱包地址",
           key: "coldWalletAddress",
-          width: 160
+          minWidth:180
 		},
         {
           title: "充值地址",
           key: "depositAddress",
-          width: 160,
+          minWidth:180,
           render: (h, obj) => {
             const row = obj.row;
             const dAddress = row.accountType === 1 ? row.depositAddress : "";
@@ -534,7 +534,7 @@ export default {
         },
         {
           title: "操作",
-          width: 130,
+          width: 150,
           fixed: 'right',
           render: (h, obj) => {
             return h("div", [

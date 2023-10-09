@@ -7,7 +7,7 @@
     <div class="formWrapper">
       <div class="titleWrapper">
         标题：
-        <p class="title"><Input v-model="title"></Input></p>
+        <p class="title"><Input v-model.trim="title"></Input></p>
       </div>
       <div>分类：
         <Select v-model="klass" style="width:200px">
@@ -16,7 +16,7 @@
       </div>
       <div class="createTimeWrapper" v-if="!!queryDetailId" >
         创建时间：
-        <p class="title"><Input v-model="createTime" disabled></Input></p>
+        <p class="title"><Input v-model.trim="createTime" disabled></Input></p>
       </div>
 
       <div>状态：

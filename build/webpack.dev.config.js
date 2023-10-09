@@ -40,13 +40,6 @@ module.exports = merge(webpackBaseConfig, {
             template: './src/template/index.ejs',
             favicon: './favicon.ico',
             inject: false
-        }),
-        new CopyWebpackPlugin([{
-            from: 'src/views/main-components/theme-switch/theme'
-        }, ], {
-            ignore: [
-                //'text-editor.vue'
-            ]
         })
     ]
 });

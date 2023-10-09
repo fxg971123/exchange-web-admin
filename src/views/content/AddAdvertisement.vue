@@ -53,11 +53,11 @@
 			</p>
 			<div class="addAdWrapper">
         <div v-if="!addAdStyle"><i>*</i> 创建时间：
-          <Input v-model="adCreateTime" disabled/>
+          <Input v-model.trim="adCreateTime" disabled/>
         </div>
 
         <p v-if="!addAdStyle"><i>*</i> 广告编号：
-          <Input v-model="adSerialNumber" disabled></Input>
+          <Input v-model.trim="adSerialNumber" disabled></Input>
         </p>
 
         <p><i>*</i> 广告排序：
@@ -157,7 +157,7 @@
           </span>
         </p>
 
-				<p><i>*</i> 广告备注： <Input v-model="adRemark" type="textarea" :rows="4" placeholder="添加广告备注..."></Input></p>
+				<p><i>*</i> 广告备注： <Input v-model.trim="adRemark" type="textarea" :rows="4" placeholder="添加广告备注..."></Input></p>
 		  	</div>
 
         <div slot="footer" style="color:#5cadff;text-align:right">

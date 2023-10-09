@@ -60,7 +60,7 @@
             <div style="text-align: center">
               <Row  type="flex" justify="center" class="code-row-bg" v-show="!tabSwitch">
                 <Col span="4" style='font-size:16px'>驳回理由 :</Col>
-                <Col span="16"> <Input v-model="rejectReason" type="textarea" :rows="4" ></Input></Col>
+                <Col span="16"> <Input v-model.trim="rejectReason" type="textarea" :rows="4" ></Input></Col>
               </Row>
               <Row  type="flex" justify="center" class="code-row-bg" v-show="tabSwitch">
                 <Col span="8" style='font-size:16px;color:#2287fe'>审核通过</Col>

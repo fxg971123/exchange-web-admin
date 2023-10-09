@@ -6,12 +6,12 @@
     </p>
     <div class="formWrapper">
       <div class="titleWrapper">标题：
-        <p class="title"><Input v-model="title"  style="width:500px"></Input></p>
+        <p class="title"><Input v-model.trim="title"  style="width:500px"></Input></p>
       </div>
 
       <div class="createTimeWrapper" v-if="!!queryDetailId" >
         创建时间：
-        <p class="title"><Input v-model="createTime" disabled></Input></p>
+        <p class="title"><Input v-model.trim="createTime" disabled></Input></p>
       </div>
 
       <div>分类：
@@ -20,7 +20,7 @@
         </Select>
       </div>
       <div class="titleWrapper">排序：
-        <p class="title"><Input v-model="sort"  style="width:200px"></Input></p>
+        <p class="title"><Input v-model.trim="sort"  style="width:200px"></Input></p>
       </div>
       <div>语言：
         <RadioGroup v-model="lang">

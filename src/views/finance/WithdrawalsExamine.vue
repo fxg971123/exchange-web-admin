@@ -162,7 +162,7 @@ export default {
         {
           title: "提现地址",
           key: "address",
-          width: 180
+          width: 300
         },
         {
           title: "备注/Memo",
@@ -224,12 +224,12 @@ export default {
         {
           title: "TXID",
           key: "transactionNumber",
-          width: 180
+          minWidth: 180
         },
         {
           title: "会员昵称",
           key: "memberUsername",
-          width: 100
+          width: 120
         },
         {
           title: "会员ID",

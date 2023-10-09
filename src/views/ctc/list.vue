@@ -34,7 +34,7 @@
             @on-cancle="loginPW = ''"
             @on-ok="confirmLoginPass">
             <p style="font-size: 16px;color:#FF0000;margin-bottom: 15px;">{{btnEventString}}</p>
-            <Input v-model="loginPW" type="password" placeholder="请输入登录密码"></Input>
+            <Input v-model.trim="loginPW" type="password" placeholder="请输入登录密码"></Input>
        </Modal>
 
        <Modal

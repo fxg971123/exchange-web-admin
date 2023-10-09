@@ -95,10 +95,7 @@ export default {
       queryChargeAwardRecord(this.param).then((res) => {
         if (!res.code) {
           this.totalNum = res.totalElements;
-          this.rewardsList = res.content.filter(
-            (i) =>
-              (i.memberPhone = i.memberPhone == null ? "未填写" : i.memberPhone)
-          );
+          this.rewardsList = res.content.filter(i =>i.memberPhone = i.memberPhone == null ? "未填写" : i.memberPhone);
           this.ifLoading = false;
         } else {
           this.$Message.error(res.message);

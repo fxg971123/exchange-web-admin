@@ -25,13 +25,13 @@
                   </RadioGroup>
           </FormItem>
           <FormItem label="最大可领取额度(随机有效):">
-              <Input v-model="envelopeForm.maxRand"></Input>
+              <Input v-model.trim="envelopeForm.maxRand"></Input>
           </FormItem>
           <FormItem label="红包总额:">
-              <Input v-model="envelopeForm.totalAmount"></Input>
+              <Input v-model.trim="envelopeForm.totalAmount"></Input>
           </FormItem>
           <FormItem label="红包数量:">
-              <Input v-model="envelopeForm.count"></Input>
+              <Input v-model.trim="envelopeForm.count"></Input>
           </FormItem>
           <FormItem label="LOGO图:">
               <Upload :action="basicUrl+'admin/common/upload/oss/image'"
@@ -52,13 +52,13 @@
               </Upload>
           </FormItem>
           <FormItem label="红包币种:">
-              <Input v-model="envelopeForm.unit"></Input>
+              <Input v-model.trim="envelopeForm.unit"></Input>
           </FormItem>
           <FormItem label="有效时间:">
-              <Input v-model="envelopeForm.expiredHours"></Input>
+              <Input v-model.trim="envelopeForm.expiredHours"></Input>
           </FormItem>
           <FormItem label="红包名称:">
-              <Input v-model="envelopeForm.name"></Input>
+              <Input v-model.trim="envelopeForm.name"></Input>
           </FormItem>
           <FormItem label="红包说明:">
               <smeditor :config='config' ref="smeditor" @isUploading = "ifUploading" style="width:100%;"></smeditor>
@@ -84,7 +84,7 @@
           width="350"
           @on-cancle="loginPW = ''"
           @on-ok="confirmLoginPass">
-          <Input v-model="loginPW" type="password" placeholder="请输入登录密码"></Input>
+          <Input v-model.trim="loginPW" type="password" placeholder="请输入登录密码"></Input>
    </Modal>
 </div>
 

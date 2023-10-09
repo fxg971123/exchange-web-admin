@@ -108,31 +108,31 @@
           {
             title: 'ID',
             key:"memberId",
-            width: 50
+            minWidth: 50
           },
           {
             title: '红包编号',
             key:"envelopeNo",
-            width: 135
+            minWidth: 135
           },
           {
             title: '币种',
-            width: 60,
+            minWidth: 60,
             key:"unit"
           },
           {
             title: '红包名',
-            width: 200,
+            minWidth: 180,
             key:"name"
           },
           {
             title: '发起人ID',
             key:"memberId",
-            width: 85
+            minWidth: 85
           },
           {
             title: '红包类型',
-            width: 60,
+            minWidth: 65,
             render: (h ,obj) => {
               let type =  obj.row.type;
               let txt = "随机";
@@ -149,32 +149,32 @@
           },
           {
             title: '红包总额',
-            width: 60,
+            minWidth: 65,
             key:"totalAmount"
           },
           {
             title: '红包数量',
-            width: 60,
+            width: 105,
             key:"count"
           },
           {
             title: '最大随机额',
-            width: 95,
+            minWidth: 95,
             key:"maxRand"
           },
           {
             title: '已领取',
-            width: 75,
+            minWidth: 75,
             key:"receiveCount"
           },
           {
             title: '领取总额',
-            width: 120,
+            minWidth: 120,
             key:"receiveAmount"
           },
           {
             title: '邀请拆分',
-            width: 60,
+            minWidth: 65,
             render: (h ,obj) => {
               let invite =  obj.row.invite;
               let txt = "否";
@@ -191,7 +191,7 @@
           },
           {
             title: '平台红包',
-            width: 60,
+            minWidth: 65,
             render: (h ,obj) => {
               let plateform =  obj.row.plateform;
               let txt = "否";
@@ -208,7 +208,7 @@
           },
           {
             title: '状态',
-            width: 80,
+            minWidth: 80,
             render: (h ,obj) => {
               let state =  obj.row.state;
               let txt = "领取中";

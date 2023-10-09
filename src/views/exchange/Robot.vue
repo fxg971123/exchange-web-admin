@@ -35,7 +35,7 @@
           </div>
           <div style="float: right;margin-right: 20px;" class="clearfix">
             <div class="poptip">当日最高限价：</div>
-            <Input v-model="maxPrice" style="width: 150px" size="small">
+            <Input v-model.trim="maxPrice" style="width: 150px" size="small">
                 <Button slot="append" type="primary" @click="setMaxPrice()">确定</Button>
             </Input>
           </div>
@@ -59,7 +59,7 @@
               </FormItem>
 
               <FormItem label="跟随价格比例：">
-                  <Input v-model="flowPercent" style="width: 150px;">
+                  <Input v-model.trim="flowPercent" style="width: 150px;">
                       <span slot="append">%</span>
                   </Input>请根据所选交易对当前行情最新价进行计算，例：如果设置该值为1，则该币种将以BTC/USDT行情价的1%作为锚定价，走势趋势将与BTC/USDT保持一致.
               </FormItem>
@@ -86,7 +86,7 @@
             <div style="float: left;" class="clearfix">
               <Form :label-width="130">
                 <FormItem label="允许价格浮动比例：">
-                    <Input v-model="pricePencent">
+                    <Input v-model.trim="pricePencent">
                         <span slot="append">%</span>
                     </Input>
                 </FormItem>

@@ -3,7 +3,8 @@
     {
       "title": "购买人ID",
       "key": "memberId",
-      "width": 100
+      "width": 100,
+      "className":"text-strong"
     },
     {
       "title": "用户手机号",
@@ -46,7 +47,8 @@
     {
       "title": "用户ID",
       "key": "memberId",
-      "width": 100
+      "width": 100,
+      "className":"text-strong"
     },
     {
       "title": "用户星级",
@@ -81,7 +83,8 @@
     {
       "title": "用户ID",
       "key": "memberId",
-      "width": 100
+      "width": 100,
+      "className":"text-strong"
     },
     {
       "title": "用户手机号",
@@ -125,7 +128,8 @@
     {
       "title": "用户ID",
       "key": "memberId",
-      "width": 100
+      "width": 100,
+      "className":"text-strong"
     },
     {
       "title": "用户手机号",
@@ -156,17 +160,18 @@
     {
       "title": "用户ID",
       "key": "memberId",
-      "width": 100
+      "minWidth": 100,
+      "className":"text-strong"
     },
     {
       "title": "用户手机号",
       "key": "memberPhone",
-      "width": 110
+      "minWidth": 120
     },
     {
       "title": "用户星级",
       "key": "memberStar",
-      "width": 100
+      "minWidth": 100
     },
     {
       "title": "星级对应人数",
@@ -176,21 +181,21 @@
     {
       "title": "奖励基数",
       "key": "sumAwardNumber",
-      "width": 100
+      "minWidth": 100
     },
     {
       "title": "星级奖励总数",
       "key": "sumCount",
-      "width": 120
+      "minWidth": 120
     },
     {
       "title": "奖励比例",
       "key": "ratio",
-      "width": 200
+      "minWidth": 200
     },    {
       "title": "领取奖励数量",
       "key": "number",
-      "width": 120
+      "minWidth": 130
     },    
     {
       "title": "领取奖励时间",
@@ -201,7 +206,8 @@
     {
       "title": "用户ID",
       "key": "memberId",
-      "width": 100
+      "width": 100,
+      "className":"text-strong"
     },
     {
       "title": "手续费用户手机号",

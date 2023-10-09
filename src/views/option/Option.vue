@@ -18,16 +18,16 @@
                 </Select>
               </div>
               <div class="poptip" style="margin-left: 15px;">
-                  <Input placeholder="合约期数" v-model="searchForm.optionNo" /></Input>
+                  <Input placeholder="合约期数" v-model.trim="searchForm.optionNo" /></Input>
               </div>
               <div class="poptip">
-                  <Input placeholder="最低看涨人数" v-model="searchForm.totalBuyCount" /></Input>
+                  <Input placeholder="最低看涨人数" v-model.trim="searchForm.totalBuyCount" /></Input>
               </div>
               <div class="poptip">
-                  <Input placeholder="最低看跌人数" v-model="searchForm.totalSellCount" /></Input>
+                  <Input placeholder="最低看跌人数" v-model.trim="searchForm.totalSellCount" /></Input>
               </div>
               <div class="poptip">
-                  <Input placeholder="最低合约收益" v-model="searchForm.totalPl" /></Input>
+                  <Input placeholder="最低合约收益" v-model.trim="searchForm.totalPl" /></Input>
               </div>
               <div class="btns">
                   <Button type="info" @click="search">搜索</Button>
@@ -81,7 +81,7 @@ export default {
       columns: [
         {
           title: "交易对",
-          width: 100,
+          width: 110,
           key: "symbol",
           render: (h, params) => {
             const row = params.row;
@@ -126,6 +126,7 @@ export default {
         },
         {
           title: '开盘时间',
+          width:105,
           key:"openTime",
           render: (h, params) => {
             const row = params.row;
@@ -151,6 +152,7 @@ export default {
         {
           title: '收盘时间',
           key:"closeTime",
+          width:105,
           render: (h, params) => {
             const row = params.row;
             var start = dtime(row.closeTime).format('YYYY-MM-DD HH:mm');
@@ -236,7 +238,7 @@ export default {
         },
 		{
 		  title: "操作",
-		  width:240,
+		  width:100,
 		  key: "id",
 		  align: 'center',
 		  fixed: 'right',
