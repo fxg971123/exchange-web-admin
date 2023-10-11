@@ -3,6 +3,9 @@ on:
   push:
     branches:
       - 'release/**'
+
+    # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 jobs:
   Build-and-Deploy:
     runs-on: ubuntu-latest
@@ -32,7 +35,7 @@ jobs:
           pwd
           ls -l
           ls -l dist/
-      - name: Upload APK Release - ${{ env.repository_name }}
+      - name: Upload dist Release - ${{ env.repository_name }}
         uses: actions/upload-artifact@v3
         with:
           name: ${{ env.repository_name }}-${{ env.date_now }}
