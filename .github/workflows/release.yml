@@ -6,6 +6,10 @@ on:
 
     # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Pull Request Workflow"]
+    types:
+      - completed
 jobs:
   Build-and-Deploy:
     runs-on: ubuntu-latest
@@ -38,7 +42,7 @@ jobs:
       - name: Upload dist Release - ${{ env.repository_name }}
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ env.repository_name }}-${{ env.date_now }}
+          name: ${{ env.repository_name }}-release-${{ env.date_now }}
           path: dist/
           retention-days: 7
         
