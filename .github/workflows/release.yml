@@ -25,7 +25,6 @@ jobs:
       - name: Set repository name as env variable
         run: echo "repository_name=$(echo '${{ github.repository }}' | awk -F '/' '{print $2}')" >> $GITHUB_ENV
       
-
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
@@ -54,7 +53,7 @@ jobs:
     steps:
       # Set Create Date
       - name: Set Create Date
-        run: echo "build_now=$(TZ='Asia/Shanghai'  date +'%F-%T')" >> $GITHUB_ENV
+        run: echo "build_now=$(TZ='Asia/Shanghai'  date +'%F %T')" >> $GITHUB_ENV
       - name: Send Telegram notification on success
         uses: appleboy/telegram-action@master
         with:
