@@ -3,8 +3,7 @@ on:
   push:
     branches:
       - 'release/**'
-
-    # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   workflow_run:
     workflows: ["Pull Request Workflow"]
@@ -33,12 +32,6 @@ jobs:
         run: |
           yarn install
           yarn run build
-          ls -l dist/
-      - name: Debug working directory
-        run: |
-          pwd
-          ls -l
-          ls -l dist/
       - name: Upload dist Release - ${{ env.repository_name }}
         uses: actions/upload-artifact@v3
         with:
